@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Fov",
+"language": "GDScript",
+"path": "res://fov.gd"
+} ]
+_global_script_class_icons={
+"Fov": ""
+}
+
 [application]
 
 config/name="Sea of Fog"

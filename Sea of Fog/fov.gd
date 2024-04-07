@@ -1,33 +1,26 @@
-extends TileMap
+class_name Fov
+extends Node
 
 var start_x : int
 var start_y : int
 var width : int 
 var height: int 
 var radius : float
-onready var walls = get_used_cells_by_id(4)
+var walls = [] 
 var map = {}
 
-func _unhandled_key_input(_event):
-	$"%TileMap2".clear()
+func calculate(_start_x : int, _start_y : int, _radius : float, _walls) -> Object:
 	map = {}
-	randomize()
-	var floors = get_used_cells_by_id(3)
-	var start = floors[randi() % floors.size()]
-	calculate(start.x, start.y, 6)
-	for cell in map:
-		$"%TileMap2".set_cell(cell.x, cell.y, get_cell(cell.x, cell.y), false, false, false, get_cell_autotile_coord(cell.x, cell.y))
-	$"%TileMap2".set_cell(start.x, start.y, 0)
-
-func calculate(_start_x : int, _start_y : int, _radius : float) -> void:
 	var diagonals = [Vector2(1, 1), Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1)]
 	start_x = _start_x
 	start_y = _start_y
 	radius = _radius
+	walls = _walls
 	map[Vector2(start_x, start_y)] = "visible"
 	for d in diagonals:
 		cast_light(1, 1.0, 0.0, 0, d.x, d.y, 0)
 		cast_light(1, 1.0, 0.0, d.x, 0, 0, d.y)
+	return map
 
 func cast_light(row: int, start: float, end : float, xx : int, xy : int, yx : int, yy : int):
 	var new_start : float = 0.0
