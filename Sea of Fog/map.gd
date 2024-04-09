@@ -13,10 +13,7 @@ func _unhandled_input(event):
 		$"%Player".position.x += 16
 	var map_position = $TileMap.world_to_map($"%Player".position)
 	var walls = $TileMap.get_used_cells_by_id(4)
-	var current_fov = fov.calculate(map_position.x, map_position.y, 5, walls)
+	var current_fov = fov.calculate(map_position.x, map_position.y, 7, walls)
 	$"%TileMap2".clear()
-	$"%TileMap3".clear()
 	for cell in current_fov:
 		$"%TileMap2".set_cell(cell.x, cell.y, $"%TileMap".get_cell(cell.x, cell.y), false, false, false, $"%TileMap".get_cell_autotile_coord(cell.x, cell.y))
-		$"%TileMap3".set_cell(cell.x, cell.y, 5)
-	$"%TileMap3".update_bitmask_region()
