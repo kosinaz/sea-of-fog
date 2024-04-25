@@ -1,7 +1,7 @@
 extends Node2D
 
 var fov = Fov.new()
-var walkable_tiles = [7, 8, 9]
+var walkable_tiles = [7, 8, 9, 16]
 var outside_tiles = [7, 9]
 
 func _ready():
@@ -9,7 +9,7 @@ func _ready():
 	$TileMap.hide()
 	draw_fov()
 	$IntroFadeIn.play("intro")
-	$Narrator.say(0)
+	$Narrator.say("intro")
 
 func _unhandled_input(event):
 	var map_position = $TileMap.world_to_map($"%Player".position)
@@ -40,7 +40,6 @@ func draw_fov():
 	if outside_tiles.has(tile):
 		$"%Player/Fov".modulate = Color(1, 1, 1, 1)
 	else:
-		$Narrator.say(1)
 		$"%Player/Fov".modulate = Color(0, 0, 0, 1)
 	$"%TileMap2".clear()
 	for x in range(-16, 16):

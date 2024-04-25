@@ -17,6 +17,6 @@ animations = [ {
 [node name="Player" type="Node2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -8 )
+position = Vector2( -8, -8 )
 frames = SubResource( 2 )
 centered = false
