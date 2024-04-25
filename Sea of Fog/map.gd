@@ -5,6 +5,9 @@ var fov = Fov.new()
 func _ready():
 	$"%Player/Fov".show()
 	$TileMap.hide()
+	draw_fov()
+	$IntroFadeIn.play("intro")
+	$Narrator.say(0)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_up"):
@@ -15,6 +18,9 @@ func _unhandled_input(event):
 		$"%Player".position.x -= 16
 	if event.is_action_pressed("ui_right"):
 		$"%Player".position.x += 16
+	draw_fov()
+	
+func draw_fov():
 	var map_position = $TileMap.world_to_map($"%Player".position)
 	var walls = $TileMap.get_used_cells_by_id(4)
 	walls.append_array($TileMap.get_used_cells_by_id(10))
@@ -23,6 +29,7 @@ func _unhandled_input(event):
 	if [7, 9].has(tile):
 		$"%Player/Fov".modulate = Color(1, 1, 1, 1)
 	else:
+		$Narrator.say(1)
 		$"%Player/Fov".modulate = Color(0, 0, 0, 1)
 	$"%TileMap2".clear()
 	for x in range(-16, 16):

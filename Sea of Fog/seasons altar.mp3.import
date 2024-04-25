@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seasons altar.mp3-d3e5fb15092ff6dbc4d57987cdc471b6.mp3str"
+
+[deps]
+
+source_file="res://seasons altar.mp3"
+dest_files=[ "res://.import/seasons altar.mp3-d3e5fb15092ff6dbc4d57987cdc471b6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
