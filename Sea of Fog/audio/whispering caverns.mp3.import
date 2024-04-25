@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/whispering caverns.mp3-c42863bd900e30d67f3da9101f313f5f.mp3str"
+
+[deps]
+
+source_file="res://audio/whispering caverns.mp3"
+dest_files=[ "res://.import/whispering caverns.mp3-c42863bd900e30d67f3da9101f313f5f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

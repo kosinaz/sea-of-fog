@@ -42,7 +42,7 @@ var line_resources = {}
 
 func _ready():
 	for line in lines:
-		line_resources[line] = load("res://" + line + ".mp3")
+		line_resources[line] = load("res://audio/" + line + ".mp3")
 
 func say(line, once = true):
 	if completed.has(line):

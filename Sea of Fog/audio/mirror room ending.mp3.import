@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mirror room ending.mp3-3590d8466482a526b105763ffa41a44c.mp3str"
+
+[deps]
+
+source_file="res://audio/mirror room ending.mp3"
+dest_files=[ "res://.import/mirror room ending.mp3-3590d8466482a526b105763ffa41a44c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

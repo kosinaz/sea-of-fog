@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/disc room.mp3-0d3f04aef0a39008e4868ca8e7b96d18.mp3str"
+
+[deps]
+
+source_file="res://audio/disc room.mp3"
+dest_files=[ "res://.import/disc room.mp3-0d3f04aef0a39008e4868ca8e7b96d18.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
