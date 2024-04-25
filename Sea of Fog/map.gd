@@ -1,6 +1,8 @@
 extends Node2D
 
 var fov = Fov.new()
+var walkable_tiles = [7, 8, 9]
+var outside_tiles = [7, 9]
 
 func _ready():
 	$"%Player/Fov".show()
@@ -10,14 +12,23 @@ func _ready():
 	$Narrator.say(0)
 
 func _unhandled_input(event):
+	var map_position = $TileMap.world_to_map($"%Player".position)
 	if event.is_action_pressed("ui_up"):
-		$"%Player".position.y -= 16
+		var tile = $"%TileMap".get_cell(map_position.x, map_position.y - 1)
+		if walkable_tiles.has(tile):
+			$"%Player".position.y -= 16
 	if event.is_action_pressed("ui_down"):
-		$"%Player".position.y += 16
+		var tile = $"%TileMap".get_cell(map_position.x, map_position.y + 1)
+		if walkable_tiles.has(tile):
+			$"%Player".position.y += 16
 	if event.is_action_pressed("ui_left"):
-		$"%Player".position.x -= 16
+		var tile = $"%TileMap".get_cell(map_position.x - 1, map_position.y)
+		if walkable_tiles.has(tile):
+			$"%Player".position.x -= 16
 	if event.is_action_pressed("ui_right"):
-		$"%Player".position.x += 16
+		var tile = $"%TileMap".get_cell(map_position.x + 1, map_position.y)
+		if walkable_tiles.has(tile):
+			$"%Player".position.x += 16
 	draw_fov()
 	
 func draw_fov():
@@ -26,7 +37,7 @@ func draw_fov():
 	walls.append_array($TileMap.get_used_cells_by_id(10))
 	var current_fov = fov.calculate(map_position.x, map_position.y, 7, walls)
 	var tile = $"%TileMap".get_cell(map_position.x, map_position.y)
-	if [7, 9].has(tile):
+	if outside_tiles.has(tile):
 		$"%Player/Fov".modulate = Color(1, 1, 1, 1)
 	else:
 		$Narrator.say(1)
@@ -34,6 +45,9 @@ func draw_fov():
 	$"%TileMap2".clear()
 	for x in range(-16, 16):
 		for y in range(-8, 8):
-			$"%TileMap2".set_cell(map_position.x + x, map_position.y + y, 5 if [7, 9].has(tile) else 0)
+			$"%TileMap2".set_cell(map_position.x + x, map_position.y + y, 11 if not outside_tiles.has(tile) else 0)
 	for cell in current_fov:
 		$"%TileMap2".set_cell(cell.x, cell.y, $"%TileMap".get_cell(cell.x, cell.y), false, false, false, $"%TileMap".get_cell_autotile_coord(cell.x, cell.y))
+
+func _on_narrator_finished():
+	$"%NarrationContainer".hide()

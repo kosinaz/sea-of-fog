@@ -5,8 +5,8 @@
 [ext_resource path="res://wall.png" type="Texture" id=3]
 [ext_resource path="res://player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://map.gd" type="Script" id=5]
-[ext_resource path="res://void.png" type="Texture" id=6]
-[ext_resource path="res://fog.png" type="Texture" id=7]
+[ext_resource path="res://fov.png" type="Texture" id=6]
+[ext_resource path="res://void.png" type="Texture" id=7]
 [ext_resource path="res://stone.png" type="Texture" id=8]
 [ext_resource path="res://grass.png" type="Texture" id=9]
 [ext_resource path="res://door.png" type="Texture" id=10]
@@ -29,20 +29,6 @@
 4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
-5/name = "fog.png 5"
-5/texture = ExtResource( 7 )
-5/tex_offset = Vector2( 0, 0 )
-5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 0, 0, 16, 16 )
-5/tile_mode = 0
-5/occluder_offset = Vector2( 0, 0 )
-5/navigation_offset = Vector2( 0, 0 )
-5/shape_offset = Vector2( 0, 0 )
-5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape_one_way = false
-5/shape_one_way_margin = 0.0
-5/shapes = [  ]
-5/z_index = 0
 7/name = "grass.png 7"
 7/texture = ExtResource( 9 )
 7/tex_offset = Vector2( 0, 0 )
@@ -99,6 +85,20 @@
 10/shape_one_way_margin = 0.0
 10/shapes = [  ]
 10/z_index = 0
+11/name = "void.png 11"
+11/texture = ExtResource( 7 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 16, 16 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
 
 [sub_resource type="Animation" id=2]
 resource_name = "intro"
@@ -165,3 +165,23 @@ margin_left = -360.0
 margin_top = -592.0
 margin_right = 744.0
 margin_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NarrationContainer" type="PanelContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -64.0
+rect_min_size = Vector2( 512, 64 )
+
+[node name="Narration" type="Label" parent="CanvasLayer/NarrationContainer"]
+unique_name_in_owner = true
+margin_left = 7.0
+margin_top = 25.0
+margin_right = 1017.0
+margin_bottom = 39.0
+autowrap = true
+
+[connection signal="finished" from="Narrator" to="." method="_on_narrator_finished"]
