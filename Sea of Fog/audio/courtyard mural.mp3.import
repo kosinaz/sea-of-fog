@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/courtyard mural.mp3-11f37fda8d29b942afd545868a66e534.mp3str"
+
+[deps]
+
+source_file="res://audio/courtyard mural.mp3"
+dest_files=[ "res://.import/courtyard mural.mp3-11f37fda8d29b942afd545868a66e534.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

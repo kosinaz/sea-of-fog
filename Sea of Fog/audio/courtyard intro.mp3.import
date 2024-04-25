@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/courtyard intro.mp3-77f29d09d20720a735f4b7938d953b71.mp3str"
+
+[deps]
+
+source_file="res://audio/courtyard intro.mp3"
+dest_files=[ "res://.import/courtyard intro.mp3-77f29d09d20720a735f4b7938d953b71.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

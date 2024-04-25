@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/courtyard statue.mp3-c292cfd41fb04d1c4433143ce336f76f.mp3str"
+
+[deps]
+
+source_file="res://audio/courtyard statue.mp3"
+dest_files=[ "res://.import/courtyard statue.mp3-c292cfd41fb04d1c4433143ce336f76f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

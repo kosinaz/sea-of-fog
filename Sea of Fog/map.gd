@@ -1,8 +1,8 @@
 extends Node2D
 
 var fov = Fov.new()
-var walkable_tiles = [7, 8, 9, 16, 18]
-var outside_tiles = [7, 9]
+var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26]
+var outside_tiles = [7, 9, 19, 21, 26]
 
 func _ready():
 	$"%Player/Fov".show()
