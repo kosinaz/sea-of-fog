@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/colonnade statue.mp3-4fbee3ad38d553bf4cc5a6d94f2442f6.mp3str"
+
+[deps]
+
+source_file="res://audio/colonnade statue.mp3"
+dest_files=[ "res://.import/colonnade statue.mp3-4fbee3ad38d553bf4cc5a6d94f2442f6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

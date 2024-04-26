@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/colonnade door.mp3-55855b64fbfc2d1bec22bad3c44eed01.mp3str"
+
+[deps]
+
+source_file="res://audio/colonnade door.mp3"
+dest_files=[ "res://.import/colonnade door.mp3-55855b64fbfc2d1bec22bad3c44eed01.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

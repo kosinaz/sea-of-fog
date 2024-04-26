@@ -39,6 +39,10 @@ var lines = {
 	"seed room seed": "I place the black gem into the pedestal, then hear a faint clicking sound emanating from under the stone plate.",
 	"seed room plate": "I step on the plate, but to my surprise, it remains unmoved. It seems there are hidden mechanics at play preventing its activation.",
 	"seed room plate moving": "I step on the plate, feeling it slowly begin to descend beneath my weight.",
+	"colonnade intro": "As I ascend the mountainside, I come upon an ancient colonnade. In the center, a sitting statue gazes intently at its open palm, as if expecting something to be placed within. Behind it, stands a massive stone door, hinting at secrets beyond.",
+	"colonnade ending": "As I place the crystal orb into the hand of the statue, the heavy stone door behind it begins to slowly descend into the ground, revealing a long staircase.",
+	"colonnade statue": "Examining the statue's outstretched palm, it appears perfectly shaped to hold an orb of some kind.",
+	"colonnade door": "The door stands tall and forbidding, closed tight, guarding its mysteries. I try to open it, but it remains steadfast, refusing to yield.",
 }
 
 var line_resources = {}

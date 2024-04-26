@@ -1,7 +1,7 @@
 extends Node2D
 
 var fov = Fov.new()
-var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26, 27, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 46, 47, 49, 50]
+var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26, 27, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51]
 var outside_tiles = [7, 9, 19, 21, 26, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 49]
 
 func _ready():
@@ -35,6 +35,15 @@ func draw_fov():
 	var map_position = $TileMap.world_to_map($"%Player".position)
 	var walls = $TileMap.get_used_cells_by_id(4)
 	walls.append_array($TileMap.get_used_cells_by_id(10))
+	walls.append_array($TileMap.get_used_cells_by_id(12))
+	walls.append_array($TileMap.get_used_cells_by_id(17))
+	walls.append_array($TileMap.get_used_cells_by_id(23))
+	walls.append_array($TileMap.get_used_cells_by_id(24))
+	walls.append_array($TileMap.get_used_cells_by_id(25))
+	walls.append_array($TileMap.get_used_cells_by_id(28))
+	walls.append_array($TileMap.get_used_cells_by_id(29))
+	walls.append_array($TileMap.get_used_cells_by_id(30))
+	walls.append_array($TileMap.get_used_cells_by_id(31))
 	var current_fov = fov.calculate(map_position.x, map_position.y, 7, walls)
 	var tile = $"%TileMap".get_cell(map_position.x, map_position.y)
 	if outside_tiles.has(tile):

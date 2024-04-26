@@ -56,6 +56,11 @@ func _unhandled_input(event):
 	if line == "seed room plate off" and $"%TileMap".world_to_map(position) != Vector2(32, 27) and not $"%Narrator".completed.has("seed room ending"):
 		$"%TileMap".set_cell(32, 27, 46)
 		$"%Timer".stop()
+	if line == "colonnade statue" and not $"%Narrator".completed.has("courtyard ending"):
+		$"%TileMap".set_cell(42, 31, 9)
+		$"%TileMap2".set_cell(42, 31, 9)
+		$"%Narrator".say("colonnade ending")
+		$"%Narrator".completed.append("colonnade door")
 
 func _on_timer_timeout():
 		$"%TileMap".set_cell(32, 29, 45)

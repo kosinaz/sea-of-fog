@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/colonnade ending.mp3-a2420879c002c0d6c457234b04a4ac46.mp3str"
+
+[deps]
+
+source_file="res://audio/colonnade ending.mp3"
+dest_files=[ "res://.import/colonnade ending.mp3-a2420879c002c0d6c457234b04a4ac46.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

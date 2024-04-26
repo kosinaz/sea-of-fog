@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/colonnade intro.mp3-06d88e525f9337c75859e24968b06a85.mp3str"
+
+[deps]
+
+source_file="res://audio/colonnade intro.mp3"
+dest_files=[ "res://.import/colonnade intro.mp3-06d88e525f9337c75859e24968b06a85.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
