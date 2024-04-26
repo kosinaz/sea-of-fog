@@ -704,7 +704,7 @@
 
 [sub_resource type="Animation" id=2]
 resource_name = "intro"
-length = 5.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
@@ -712,10 +712,24 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_fade_in_finished"
+} ]
 }
 
 [sub_resource type="StyleBoxFlat" id=4]
@@ -751,12 +765,12 @@ format = 1
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 unique_name_in_owner = true
-position = Vector2( 680, 624 )
+position = Vector2( 160, -320 )
 
 [node name="Fov" type="Sprite" parent="Player"]
 visible = false
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0, 8 )
+position = Vector2( 8, 8 )
 texture = ExtResource( 10 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -779,9 +793,9 @@ anims/intro = SubResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = -360.0
-margin_top = -592.0
+margin_top = -576.0
 margin_right = 744.0
-margin_bottom = 40.0
+margin_bottom = 56.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
