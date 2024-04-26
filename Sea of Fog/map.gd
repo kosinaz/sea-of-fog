@@ -62,12 +62,18 @@ func _process(_delta):
 		map_position.y = new_map_position.y
 	tween = get_tree().create_tween()
 	tween.tween_property($"%Player", "position", $TileMap.map_to_world(map_position), 0.25)
+	tween.tween_callback(self, "on_move")
 	draw_fov()
 	if movement_vector != Vector2():
 		$Player/AnimatedSprite.play(directions[movement_vector])
 	elif not $Player/AnimatedSprite.animation.begins_with("idle"):
 		$Player/AnimatedSprite.play("idle_" + $Player/AnimatedSprite.animation)
-	
+
+func on_move():
+	for trigger in $Triggers.get_children():
+		if map_position == $TileMap.world_to_map(trigger.position):
+			trigger.on_move()
+
 func draw_fov():
 	var walls = $TileMap.get_used_cells_by_id(4)
 	walls.append_array($TileMap.get_used_cells_by_id(10))

@@ -765,7 +765,7 @@ format = 1
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 unique_name_in_owner = true
-position = Vector2( 160, -320 )
+position = Vector2( 176, -320 )
 
 [node name="Fov" type="Sprite" parent="Player"]
 visible = false
@@ -818,12 +818,12 @@ margin_bottom = 39.0
 custom_fonts/font = SubResource( 3 )
 autowrap = true
 
-[node name="Triggers" type="Node" parent="."]
-
-[node name="Timer" type="Timer" parent="Triggers"]
+[node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 10.0
 one_shot = true
+
+[node name="Triggers" type="Node" parent="."]
 
 [node name="Entrance" type="Node2D" parent="Triggers"]
 position = Vector2( 312, 96 )
@@ -1127,4 +1127,4 @@ script = ExtResource( 15 )
 line = "courtyard mural"
 
 [connection signal="finished" from="Narrator" to="." method="_on_narrator_finished"]
-[connection signal="timeout" from="Triggers/Timer" to="Triggers/Seed Room Plate" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Triggers/Seed Room Plate" method="_on_timer_timeout"]
