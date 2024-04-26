@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/disc room growth.mp3-cf3e6caf9dd33127bf94baff06004ef1.mp3str"
+
+[deps]
+
+source_file="res://audio/disc room growth.mp3"
+dest_files=[ "res://.import/disc room growth.mp3-cf3e6caf9dd33127bf94baff06004ef1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

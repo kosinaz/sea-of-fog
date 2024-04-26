@@ -4,8 +4,10 @@ var completed = []
 
 var lines = {
 	"intro": "Hours have passed since the battle's end. I've wandered aimlessly, calling out for my squad, but all I hear is silence. Unable to scale the treacherous mountainsides, I'm left with no choice but to delve deeper into this Sea of Fog.",
-	"entrance": "A tunnel? It's ancient, but... perhaps it's a path to escape.",
 	"ending": "After countless trials, I stumble upon a stairway. Without hesitation, I ascend, hoping to finally reach the mountain's summit. And then, as I gaze down into the depths of the valley, the undeniable truth reveals itself... This world is not the one I left behind. It's a different one, shrouded in truly endless fog and crowned with alien mountains. Yet, instead of despair, a sense of contentment washes over me. Accepting my fate, I release the futile pursuit of my past. Once more, I choose to press forward, delving deeper into the unknown, eager to uncover its mysteries and shape my own destiny. For I am, and always will be, a wanderer above the sea of fog...",
+	"entrance": "A tunnel? It's ancient, but... perhaps it's a path to escape.",
+	"bridge": "There's a bridge below, but I can't see any way to activate the mechanism and bring it back up.",
+	"door": "A door. There must be some way to open it.",
 	"mirror room intro": "As I step into the dimly lit chamber, a cracked mirror catches my eye. A pile of rubble occupies one corner, two weathered barrels rest in another, and near the entrance, a rusted iron grate lies embedded in the floor.",
 	"mirror room ending": "Among the debris, I uncover a hidden lever. As I pull it, a distant rumble echoes through the chamber.",
 	"mirror room mirror": "The distorted images staring back at me offer no answers.",
@@ -44,13 +46,13 @@ func _ready():
 	for line in lines:
 		line_resources[line] = load("res://audio/" + line + ".mp3")
 
-func say(line, once = true):
+func say(line, repeat = false):
 	if completed.has(line):
 		return
 	$"%NarrationContainer".show()
 	$"%Narration".text = lines[line]
 	stream = line_resources[line]
 	.play()
-	if once:
+	if not repeat:
 		completed.append(line)
 	

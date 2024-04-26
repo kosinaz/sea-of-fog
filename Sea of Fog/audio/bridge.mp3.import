@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bridge.mp3-d104830bac34f4188a5b75c0546d3ebc.mp3str"
+
+[deps]
+
+source_file="res://audio/bridge.mp3"
+dest_files=[ "res://.import/bridge.mp3-d104830bac34f4188a5b75c0546d3ebc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

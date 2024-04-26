@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/disc room riddle.mp3-5749cb8f1b601ac322b1fe53c827c35a.mp3str"
+
+[deps]
+
+source_file="res://audio/disc room riddle.mp3"
+dest_files=[ "res://.import/disc room riddle.mp3-5749cb8f1b601ac322b1fe53c827c35a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

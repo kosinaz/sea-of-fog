@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/disc room love.mp3-047afb584824f430557452f808b6b2c7.mp3str"
+
+[deps]
+
+source_file="res://audio/disc room love.mp3"
+dest_files=[ "res://.import/disc room love.mp3-047afb584824f430557452f808b6b2c7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
