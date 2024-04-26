@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://fov.gd" type="Script" id=1]
 [ext_resource path="res://images/mirror.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://images/mural.png" type="Texture" id=27]
 [ext_resource path="res://images/mural2.png" type="Texture" id=28]
 [ext_resource path="res://images/orb.png" type="Texture" id=29]
+[ext_resource path="res://alagard.ttf" type="DynamicFontData" id=30]
 
 [sub_resource type="TileSet" id=1]
 4/name = "wall.png 4"
@@ -342,6 +343,20 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.372549, 0.372549, 0.372549, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 30 )
+
 [node name="Map" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -403,13 +418,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -64.0
 rect_min_size = Vector2( 512, 64 )
+custom_styles/panel = SubResource( 4 )
 
 [node name="Narration" type="Label" parent="CanvasLayer/NarrationContainer"]
 unique_name_in_owner = true
-margin_left = 7.0
-margin_top = 25.0
-margin_right = 1017.0
+margin_left = 10.0
+margin_top = 24.0
+margin_right = 1014.0
 margin_bottom = 39.0
+custom_fonts/font = SubResource( 3 )
 autowrap = true
 
 [node name="Triggers" type="Node" parent="."]
