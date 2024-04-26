@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seed room ending.mp3-becb02d760e0135d82f40170f2aa9e52.mp3str"
+
+[deps]
+
+source_file="res://audio/seed room ending.mp3"
+dest_files=[ "res://.import/seed room ending.mp3-becb02d760e0135d82f40170f2aa9e52.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

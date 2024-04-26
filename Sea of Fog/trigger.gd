@@ -21,7 +21,7 @@ func _unhandled_input(event):
 			if $"%TileMap".get_cell(x, 8) != 30:
 				return
 		$"%Narrator".say("disc room ending")
-		$"%TileMap".set_cell(4, -6, 9)
+		$"%TileMap".set_cell(11, 0, 9)
 		$"%Narrator".completed.append_array(["disc room health", "disc room happiness", "disc room love", "disc room growth", "disc room riddle", "disc room life", "bridge"])
 	if not $"%Narrator".completed.has("seasons altar riddle") and ["seasons altar spring", "seasons altar summer", "seasons altar autumn", "seasons altar winter"].has(line):
 		var tile = $"%TileMap".world_to_map(position)
@@ -30,7 +30,7 @@ func _unhandled_input(event):
 			return
 		$"%TileMap".set_cell(tile.x, tile.y, tile_id + 7)
 		if $"%TileMap".get_cell(-4, 6) == 39 and $"%TileMap".get_cell(-6, 6) == 40 and $"%TileMap".get_cell(-6, 4) == 41 and $"%TileMap".get_cell(-4, 4) == 42:
-			$"%Narrator".completed.append_array(["seasons altar riddle", "seasons altar spring", "seasons altar summer", "seasons altar autumn", "seasons altar winter"])
+			$"%Narrator".completed.append_array(["seasons altar riddle", "seasons altar spring", "seasons altar summer", "seasons altar autumn", "seasons altar winter", "seasons altar chest"])
 			$"%Narrator".say("seasons altar ending")
 			$"%TileMap".set_cell(-5, 5, 38)
 		if tile_id == 32 and $"%TileMap".get_cell(-4, 4) == 35:
@@ -45,5 +45,21 @@ func _unhandled_input(event):
 		if tile_id == 35 and $"%TileMap".get_cell(-6, 4) == 34:
 			$"%TileMap".set_cell(-4, 6, 32)
 			$"%TileMap".set_cell(-6, 6, 33)
-		
-		
+	if line == "seed room pedestal" and $"%Narrator".completed.has("seasons altar riddle") and not $"%Narrator".completed.has("seed room ending"):
+		$"%TileMap".set_cell(32, 29, 44)
+		$"%Narrator".say("seed room seed")
+		$"%Narrator".completed.append("seed room pedestal")
+	if line == "seed room plate" and $"%Narrator".completed.has("seed room seed"):
+		$"%TileMap".set_cell(32, 27, 47)
+		$"%Narrator".say("seed room plate moving", true)
+		$"%Timer".start(0.0)
+	if line == "seed room plate off" and $"%TileMap".world_to_map(position) != Vector2(32, 27) and not $"%Narrator".completed.has("seed room ending"):
+		$"%TileMap".set_cell(32, 27, 46)
+		$"%Timer".stop()
+
+func _on_timer_timeout():
+		$"%TileMap".set_cell(32, 29, 45)
+		$"%TileMap2".set_cell(32, 29, 45)
+		$"%TileMap".set_cell(31, 40, 9)
+		$"%Narrator".say("seed room ending")
+		$"%Narrator".completed.append("seed room plate moving")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seed room pedestal.mp3-3dba51fe381264ab6dd5336621c3d87e.mp3str"
+
+[deps]
+
+source_file="res://audio/seed room pedestal.mp3"
+dest_files=[ "res://.import/seed room pedestal.mp3-3dba51fe381264ab6dd5336621c3d87e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

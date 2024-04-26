@@ -48,6 +48,8 @@ func _ready():
 		line_resources[line] = load("res://audio/" + line + ".mp3")
 
 func say(line, repeat = false):
+	if not lines.has(line):
+		return
 	if completed.has(line):
 		return
 	$"%NarrationContainer".show()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seed room plate.mp3-0534a8845d7ca8c715380046828783ca.mp3str"
+
+[deps]
+
+source_file="res://audio/seed room plate.mp3"
+dest_files=[ "res://.import/seed room plate.mp3-0534a8845d7ca8c715380046828783ca.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

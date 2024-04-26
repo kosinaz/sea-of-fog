@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seed room seed.mp3-0a297e283222cf6c06fa48f7db47f40e.mp3str"
+
+[deps]
+
+source_file="res://audio/seed room seed.mp3"
+dest_files=[ "res://.import/seed room seed.mp3-0a297e283222cf6c06fa48f7db47f40e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
