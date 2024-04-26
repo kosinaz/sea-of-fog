@@ -18,22 +18,42 @@ animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "down",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "idle_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idle_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle_up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "left",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "right",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "up",
-"speed": 5.0
+"speed": 12.0
 } ]
 
 [node name="Player" type="Node2D"]
@@ -41,5 +61,4 @@ animations = [ {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 8, 3 )
 frames = SubResource( 2 )
-animation = "up"
-frame = 2
+animation = "idle_up"
