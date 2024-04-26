@@ -32,6 +32,7 @@ var lines = {
 	"seasons altar spring": "Spring",
 	"seasons altar summer": "Summer",
 	"seasons altar autumn": "Autumn",
+	"seasons altar chest": "I can't open it.",
 	"seed room intro": "As I step into the chamber, the air feels heavy with the weight of time. In the center of the room, a bare pedestal stands beneath a shaft of weak sunlight, casting a gentle glow. In front of it, a small stone plate, adorned with the symbol of time. A canal runs through the middle of the room, flowing past the pedestal like a river.",
 	"seed room ending": "Time stretches endlessly as the plate slowly descends, each second feeling like an eternity. At last, it comes to a stop, and in the next instant, the pedestal begins to rise, sealing the gap in the ceiling. The air fills with the sound of heavy rocks shifting outside.",
 	"seed room pedestal": "Upon closer examination, I discover a gemstone shape carved into the top of the pedestal.",

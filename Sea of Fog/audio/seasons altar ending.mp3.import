@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seasons altar ending.mp3-0bc50feeeb275ef76521b1ead3703fd9.mp3str"
+
+[deps]
+
+source_file="res://audio/seasons altar ending.mp3"
+dest_files=[ "res://.import/seasons altar ending.mp3-0bc50feeeb275ef76521b1ead3703fd9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seasons altar riddle.mp3-2bd1f63d4a414b4145a4fbad2665ca33.mp3str"
+
+[deps]
+
+source_file="res://audio/seasons altar riddle.mp3"
+dest_files=[ "res://.import/seasons altar riddle.mp3-2bd1f63d4a414b4145a4fbad2665ca33.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
