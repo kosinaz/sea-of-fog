@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://fov.gd" type="Script" id=1]
 [ext_resource path="res://images/mirror.png" type="Texture" id=2]
@@ -42,6 +42,10 @@
 [ext_resource path="res://images/obelisk.png" type="Texture" id=40]
 [ext_resource path="res://images/chest.png" type="Texture" id=41]
 [ext_resource path="res://images/chest open.png" type="Texture" id=42]
+[ext_resource path="res://images/summer pressed.png" type="Texture" id=43]
+[ext_resource path="res://images/autumn pressed.png" type="Texture" id=44]
+[ext_resource path="res://images/winter pressed.png" type="Texture" id=45]
+[ext_resource path="res://images/spring pressed.png" type="Texture" id=46]
 
 [sub_resource type="TileSet" id=1]
 4/name = "wall.png 4"
@@ -506,6 +510,62 @@
 38/shape_one_way_margin = 0.0
 38/shapes = [  ]
 38/z_index = 0
+39/name = "spring pressed.png 39"
+39/texture = ExtResource( 46 )
+39/tex_offset = Vector2( 0, 0 )
+39/modulate = Color( 1, 1, 1, 1 )
+39/region = Rect2( 0, 0, 16, 24 )
+39/tile_mode = 0
+39/occluder_offset = Vector2( 0, 0 )
+39/navigation_offset = Vector2( 0, 0 )
+39/shape_offset = Vector2( 0, 0 )
+39/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+39/shape_one_way = false
+39/shape_one_way_margin = 0.0
+39/shapes = [  ]
+39/z_index = 0
+40/name = "summer pressed.png 40"
+40/texture = ExtResource( 43 )
+40/tex_offset = Vector2( 0, 0 )
+40/modulate = Color( 1, 1, 1, 1 )
+40/region = Rect2( 0, 0, 16, 24 )
+40/tile_mode = 0
+40/occluder_offset = Vector2( 0, 0 )
+40/navigation_offset = Vector2( 0, 0 )
+40/shape_offset = Vector2( 0, 0 )
+40/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+40/shape_one_way = false
+40/shape_one_way_margin = 0.0
+40/shapes = [  ]
+40/z_index = 0
+41/name = "autumn pressed.png 41"
+41/texture = ExtResource( 44 )
+41/tex_offset = Vector2( 0, 0 )
+41/modulate = Color( 1, 1, 1, 1 )
+41/region = Rect2( 0, 0, 16, 24 )
+41/tile_mode = 0
+41/occluder_offset = Vector2( 0, 0 )
+41/navigation_offset = Vector2( 0, 0 )
+41/shape_offset = Vector2( 0, 0 )
+41/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+41/shape_one_way = false
+41/shape_one_way_margin = 0.0
+41/shapes = [  ]
+41/z_index = 0
+42/name = "winter pressed.png 42"
+42/texture = ExtResource( 45 )
+42/tex_offset = Vector2( 0, 0 )
+42/modulate = Color( 1, 1, 1, 1 )
+42/region = Rect2( 0, 0, 16, 24 )
+42/tile_mode = 0
+42/occluder_offset = Vector2( 0, 0 )
+42/navigation_offset = Vector2( 0, 0 )
+42/shape_offset = Vector2( 0, 0 )
+42/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+42/shape_one_way = false
+42/shape_one_way_margin = 0.0
+42/shapes = [  ]
+42/z_index = 0
 
 [sub_resource type="Animation" id=2]
 resource_name = "intro"

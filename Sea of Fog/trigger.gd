@@ -23,3 +23,27 @@ func _unhandled_input(event):
 		$"%Narrator".say("disc room ending")
 		$"%TileMap".set_cell(4, -6, 9)
 		$"%Narrator".completed.append_array(["disc room health", "disc room happiness", "disc room love", "disc room growth", "disc room riddle", "disc room life", "bridge"])
+	if not $"%Narrator".completed.has("seasons altar riddle") and ["seasons altar spring", "seasons altar summer", "seasons altar autumn", "seasons altar winter"].has(line):
+		var tile = $"%TileMap".world_to_map(position)
+		var tile_id = $"%TileMap".get_cell(tile.x, tile.y)
+		if tile_id > 38:
+			return
+		$"%TileMap".set_cell(tile.x, tile.y, tile_id + 7)
+		if $"%TileMap".get_cell(-4, 6) == 39 and $"%TileMap".get_cell(-6, 6) == 40 and $"%TileMap".get_cell(-6, 4) == 41 and $"%TileMap".get_cell(-4, 4) == 42:
+			$"%Narrator".completed.append_array(["seasons altar riddle", "seasons altar spring", "seasons altar summer", "seasons altar autumn", "seasons altar winter"])
+			$"%Narrator".say("seasons altar ending")
+			$"%TileMap".set_cell(-5, 5, 38)
+		if tile_id == 32 and $"%TileMap".get_cell(-4, 4) == 35:
+			$"%TileMap".set_cell(-6, 6, 33)
+			$"%TileMap".set_cell(-6, 4, 34)
+		if tile_id == 33 and $"%TileMap".get_cell(-4, 6) == 32:
+			$"%TileMap".set_cell(-6, 4, 34)
+			$"%TileMap".set_cell(-4, 4, 35)
+		if tile_id == 34 and $"%TileMap".get_cell(-6, 6) == 33:
+			$"%TileMap".set_cell(-4, 6, 32)
+			$"%TileMap".set_cell(-4, 4, 35)
+		if tile_id == 35 and $"%TileMap".get_cell(-6, 4) == 34:
+			$"%TileMap".set_cell(-4, 6, 32)
+			$"%TileMap".set_cell(-6, 6, 33)
+		
+		
