@@ -120,3 +120,12 @@ func _on_right_button_up():
 
 func _on_hide_buttons_toggled(button_pressed):
 	$"%MovementButtons".visible = not button_pressed
+
+func _on_hide_messages_pressed():
+	$"%LogPanel".hide()
+
+func _on_messages_pressed():
+	$"%LogPanel".show()
+	$"%Log".text = ""
+	for line in $"%Narrator".completed:
+		$"%Log".text += $"%Narrator".lines[line] + "\n\n"
