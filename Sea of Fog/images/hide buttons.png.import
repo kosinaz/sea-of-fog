@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/victory.png-7cb8c72d3afed1728d7257e263eaae04.stex"
+path="res://.import/hide buttons.png-7f3947d6f253e317130123bf82932f82.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/victory.png"
-dest_files=[ "res://.import/victory.png-7cb8c72d3afed1728d7257e263eaae04.stex" ]
+source_file="res://images/hide buttons.png"
+dest_files=[ "res://.import/hide buttons.png-7f3947d6f253e317130123bf82932f82.stex" ]
 
 [params]
 

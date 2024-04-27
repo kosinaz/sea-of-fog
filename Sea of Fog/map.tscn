@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://fov.gd" type="Script" id=1]
 [ext_resource path="res://images/mirror.png" type="Texture" id=2]
@@ -55,6 +55,12 @@
 [ext_resource path="res://images/wire.png" type="Texture" id=53]
 [ext_resource path="res://images/wire2.png" type="Texture" id=54]
 [ext_resource path="res://images/stairs.png" type="Texture" id=55]
+[ext_resource path="res://images/up.png" type="Texture" id=56]
+[ext_resource path="res://images/down.png" type="Texture" id=57]
+[ext_resource path="res://images/left.png" type="Texture" id=58]
+[ext_resource path="res://images/right.png" type="Texture" id=59]
+[ext_resource path="res://images/hide buttons.png" type="Texture" id=60]
+[ext_resource path="res://images/show buttons.png" type="Texture" id=61]
 
 [sub_resource type="TileSet" id=1]
 4/name = "wall.png 4"
@@ -801,7 +807,6 @@ margin_bottom = 56.0
 
 [node name="NarrationContainer" type="PanelContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
-visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -817,6 +822,84 @@ margin_right = 1014.0
 margin_bottom = 39.0
 custom_fonts/font = SubResource( 3 )
 autowrap = true
+
+[node name="MovementButtons" type="MarginContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -220.0
+margin_top = -284.0
+custom_constants/margin_right = 20
+custom_constants/margin_bottom = 84
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MovementButtons"]
+margin_right = 200.0
+margin_bottom = 200.0
+columns = 3
+
+[node name="Blank7" type="MarginContainer" parent="CanvasLayer/MovementButtons/GridContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+
+[node name="Up" type="TextureButton" parent="CanvasLayer/MovementButtons/GridContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 56 )
+
+[node name="Blank2" type="MarginContainer" parent="CanvasLayer/MovementButtons/GridContainer"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+
+[node name="Left" type="TextureButton" parent="CanvasLayer/MovementButtons/GridContainer"]
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 132.0
+texture_normal = ExtResource( 58 )
+
+[node name="Blank3" type="MarginContainer" parent="CanvasLayer/MovementButtons/GridContainer"]
+margin_left = 68.0
+margin_top = 68.0
+margin_right = 132.0
+margin_bottom = 132.0
+
+[node name="Right" type="TextureButton" parent="CanvasLayer/MovementButtons/GridContainer"]
+margin_left = 136.0
+margin_top = 68.0
+margin_right = 200.0
+margin_bottom = 132.0
+texture_normal = ExtResource( 59 )
+
+[node name="Blank4" type="MarginContainer" parent="CanvasLayer/MovementButtons/GridContainer"]
+margin_top = 136.0
+margin_right = 64.0
+margin_bottom = 200.0
+
+[node name="Down" type="TextureButton" parent="CanvasLayer/MovementButtons/GridContainer"]
+margin_left = 68.0
+margin_top = 136.0
+margin_right = 132.0
+margin_bottom = 200.0
+texture_normal = ExtResource( 57 )
+
+[node name="Menu" type="MarginContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -84.0
+margin_bottom = 84.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+
+[node name="HideButtons" type="TextureButton" parent="CanvasLayer/Menu"]
+margin_top = 20.0
+margin_right = 64.0
+margin_bottom = 84.0
+toggle_mode = true
+texture_normal = ExtResource( 60 )
+texture_pressed = ExtResource( 61 )
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -1127,4 +1210,13 @@ script = ExtResource( 15 )
 line = "courtyard mural"
 
 [connection signal="finished" from="Narrator" to="." method="_on_narrator_finished"]
+[connection signal="button_down" from="CanvasLayer/MovementButtons/GridContainer/Up" to="." method="_on_up_button_down"]
+[connection signal="button_up" from="CanvasLayer/MovementButtons/GridContainer/Up" to="." method="_on_up_button_up"]
+[connection signal="button_down" from="CanvasLayer/MovementButtons/GridContainer/Left" to="." method="_on_left_button_down"]
+[connection signal="button_up" from="CanvasLayer/MovementButtons/GridContainer/Left" to="." method="_on_left_button_up"]
+[connection signal="button_down" from="CanvasLayer/MovementButtons/GridContainer/Right" to="." method="_on_right_button_down"]
+[connection signal="button_up" from="CanvasLayer/MovementButtons/GridContainer/Right" to="." method="_on_right_button_up"]
+[connection signal="button_down" from="CanvasLayer/MovementButtons/GridContainer/Down" to="." method="_on_down_button_down"]
+[connection signal="button_up" from="CanvasLayer/MovementButtons/GridContainer/Down" to="." method="_on_down_button_up"]
+[connection signal="toggled" from="CanvasLayer/Menu/HideButtons" to="." method="_on_hide_buttons_toggled"]
 [connection signal="timeout" from="Timer" to="Triggers/Seed Room Plate" method="_on_timer_timeout"]

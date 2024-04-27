@@ -5,13 +5,10 @@ var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26, 27, 32, 33, 34, 35, 36, 38, 3
 var outside_tiles = [7, 9, 19, 21, 26, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 49]
 var tween = null
 var map_position = Vector2()
-var target_position = Vector2()
-var directions = {
-	Vector2(0, -1): "up",
-	Vector2(0, 1): "down",
-	Vector2(-1, 0): "left",
-	Vector2(1, 0): "right",
-}
+var up_is_down = false
+var left_is_down = false
+var right_is_down = false
+var down_is_down = false
 
 func _ready():
 	$"%Player/Fov".show()
@@ -24,50 +21,42 @@ func _ready():
 func _process(_delta):
 	if tween != null and tween.is_running():
 		return
-	if Input.is_mouse_button_pressed(1):
-		target_position = $TileMap.world_to_map(get_global_mouse_position())
+	if Input.is_action_pressed("ui_left") or left_is_down:
+		var tile = $"%TileMap".get_cell(map_position.x - 1, map_position.y)
+		if walkable_tiles.has(tile):
+			map_position.x -= 1
+			$Player/AnimatedSprite.play("left")
+		else:
+			$Player/AnimatedSprite.play("idle_left")
+	elif Input.is_action_pressed("ui_right") or right_is_down:
+		var tile = $"%TileMap".get_cell(map_position.x + 1, map_position.y)
+		if walkable_tiles.has(tile):
+			map_position.x += 1
+			$Player/AnimatedSprite.play("right")
+		else:
+			$Player/AnimatedSprite.play("idle_right")
+	elif Input.is_action_pressed("ui_up") or up_is_down:
+		var tile = $"%TileMap".get_cell(map_position.x, map_position.y - 1)
+		if walkable_tiles.has(tile):
+			map_position.y -= 1
+			$Player/AnimatedSprite.play("up")
+		else:
+			$Player/AnimatedSprite.play("idle_up")
+	elif Input.is_action_pressed("ui_down") or down_is_down:
+		var tile = $"%TileMap".get_cell(map_position.x, map_position.y + 1)
+		if walkable_tiles.has(tile):
+			map_position.y += 1
+			$Player/AnimatedSprite.play("down")
+		else:
+			$Player/AnimatedSprite.play("idle_down")
 	else:
 		if not $Player/AnimatedSprite.animation.begins_with("idle"):
 			$Player/AnimatedSprite.play("idle_" + $Player/AnimatedSprite.animation)
 		return
-	var new_map_position = map_position
-	var movement_vector = Vector2()
-	if target_position.x < map_position.x:
-		var tile = $"%TileMap".get_cell(map_position.x - 1, map_position.y)
-		if walkable_tiles.has(tile):
-			new_map_position.x -= 1
-	if target_position.x > map_position.x:
-		var tile = $"%TileMap".get_cell(map_position.x + 1, map_position.y)
-		if walkable_tiles.has(tile):
-			new_map_position.x += 1
-	if target_position.y < map_position.y:
-		var tile = $"%TileMap".get_cell(map_position.x, map_position.y - 1)
-		if walkable_tiles.has(tile):
-			new_map_position.y -= 1
-	if target_position.y > map_position.y:
-		var tile = $"%TileMap".get_cell(map_position.x, map_position.y + 1)
-		if walkable_tiles.has(tile):
-			new_map_position.y += 1
-	if new_map_position.x == map_position.x and new_map_position.y != map_position.y:
-		movement_vector.y = new_map_position.y - map_position.y
-		map_position.y = new_map_position.y
-	elif new_map_position.x != map_position.x and new_map_position.y == map_position.y:
-		movement_vector.x = new_map_position.x - map_position.x
-		map_position.x = new_map_position.x
-	elif abs(target_position.x - map_position.x) > abs(target_position.y - map_position.y):
-		movement_vector.x = new_map_position.x - map_position.x
-		map_position.x = new_map_position.x
-	else:
-		movement_vector.y = new_map_position.y - map_position.y
-		map_position.y = new_map_position.y
 	tween = get_tree().create_tween()
 	tween.tween_property($"%Player", "position", $TileMap.map_to_world(map_position), 0.25)
 	tween.tween_callback(self, "on_move")
 	draw_fov()
-	if movement_vector != Vector2():
-		$Player/AnimatedSprite.play(directions[movement_vector])
-	elif not $Player/AnimatedSprite.animation.begins_with("idle"):
-		$Player/AnimatedSprite.play("idle_" + $Player/AnimatedSprite.animation)
 
 func on_move():
 	for trigger in $Triggers.get_children():
@@ -104,3 +93,30 @@ func _on_narrator_finished():
 
 func _on_fade_in_finished():
 	$ColorRect.queue_free()
+
+func _on_up_button_down():
+	up_is_down = true
+
+func _on_left_button_down():
+	left_is_down = true
+
+func _on_down_button_down():
+	down_is_down = true
+
+func _on_right_button_down():
+	right_is_down = true
+
+func _on_up_button_up():
+	up_is_down = false
+
+func _on_left_button_up():
+	left_is_down = false
+
+func _on_down_button_up():
+	down_is_down = false
+
+func _on_right_button_up():
+	right_is_down = false
+
+func _on_hide_buttons_toggled(button_pressed):
+	$"%MovementButtons".visible = not button_pressed
