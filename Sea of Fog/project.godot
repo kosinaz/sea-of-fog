@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Sea of Fog"
-run/main_scene="res://map.tscn"
+run/main_scene="res://menu.tscn"
 config/icon="res://icon.png"
 
 [global]

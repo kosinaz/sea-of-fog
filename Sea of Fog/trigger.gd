@@ -4,6 +4,9 @@ export var line = ""
 export var repeat = false
 
 func on_move():
+	if line == "ending":
+	# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://menu.tscn")
 	$"%Narrator".say(line, repeat)
 	if line == "mirror room ending":
 		$"%TileMap".set_cell(29, 6, 14)
