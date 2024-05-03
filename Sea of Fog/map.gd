@@ -13,6 +13,7 @@ var down_is_down = false
 func _ready():
 	$"%Player/Fov".show()
 	$TileMap.hide()
+	$"HUD".show()
 	map_position = $TileMap.world_to_map($"%Player".position)
 	draw_fov()
 	$IntroFadeIn.play("intro")

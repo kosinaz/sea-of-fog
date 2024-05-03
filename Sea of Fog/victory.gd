@@ -9,5 +9,6 @@ func _input(event):
 	get_tree().change_scene("res://menu.tscn")
 
 func _on_ending_finished():
-	$AudioStreamPlayerMusic.volume_db = 0
+	var tween = get_tree().create_tween()
+	tween.tween_property($AudioStreamPlayerMusic, "volume_db", 0, 3)
 	$NarrationContainer.hide()
