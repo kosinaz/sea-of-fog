@@ -1,6 +1,7 @@
 extends AudioStreamPlayer
 
 var completed = []
+var disabled = []
 
 var lines = {
 	"intro": "Hours have passed since the battle's end. I've wandered aimlessly, calling out for my squad, but all I hear is silence. Unable to scale the treacherous mountainsides, I'm left with no choice but to delve deeper into this Sea of Fog.",
@@ -54,14 +55,33 @@ func _ready():
 func say(line, repeat = false):
 	if not lines.has(line):
 		return
-	if completed.has(line):
+	if disabled.has(line):
 		return
 	if line.ends_with("ending"):
 		$"%Teacher".present(line)
+		disable_room(line.trim_suffix(" ending"))
 	$"%NarrationContainer".show()
 	$"%Narration".text = lines[line]
 	stream = line_resources[line]
 	.play()
+	complete(line)
 	if not repeat:
-		completed.append(line)
+		disable(line)
+	
+func complete(line):
+	if completed.has(line):
+		return
+	completed.append(line)
+	
+func disable(line):
+	if not lines.has(line):
+		return
+	if disabled.has(line):
+		return
+	disabled.append(line)
+
+func disable_room(room):
+	for line in lines:
+		if line.begins_with(room):
+			disable(line)
 	
