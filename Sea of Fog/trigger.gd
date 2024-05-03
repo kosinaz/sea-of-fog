@@ -74,8 +74,8 @@ func on_move():
 		$"%TileMap2".set_cell(32, 27, 46)
 		$"%Timer".stop()
 	if line == "colonnade statue" and $"%Narrator".completed.has("courtyard ending"):
-		$"%TileMap".set_cell(42, 31, 9)
-		$"%TileMap2".set_cell(42, 31, 9)
+		$"%TileMap".set_cell(39, 31, 9)
+		$"%TileMap2".set_cell(39, 31, 9)
 		$"%Narrator".say("colonnade ending")
 		$"%Narrator".completed.append("colonnade door")
 
