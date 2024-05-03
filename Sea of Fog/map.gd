@@ -12,9 +12,9 @@ var down_is_down = false
 
 func _ready():
 	$"%Player/Fov".show()
-	$TileMap.hide()
+	$"%TileMap".hide()
 	$"HUD".show()
-	map_position = $TileMap.world_to_map($"%Player".position)
+	map_position = $"%TileMap".world_to_map($"%Player".position)
 	draw_fov()
 	$IntroFadeIn.play("intro")
 	$Narrator.say("intro")
@@ -88,6 +88,7 @@ func draw_fov():
 			$"%TileMap2".set_cell(map_position.x + x, map_position.y + y, 11 if not outside_tiles.has(tile) else 0)
 	for cell in current_fov:
 		$"%TileMap2".set_cell(cell.x, cell.y, $"%TileMap".get_cell(cell.x, cell.y), false, false, false, $"%TileMap".get_cell_autotile_coord(cell.x, cell.y))
+	$"%MiniMap".add(current_fov, map_position)
 
 func _on_narrator_finished():
 	$"%NarrationContainer".hide()
