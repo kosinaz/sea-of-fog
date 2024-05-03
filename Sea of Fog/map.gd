@@ -22,6 +22,9 @@ func _ready():
 func _process(_delta):
 	if tween != null and tween.is_running():
 		return
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up"):
+		$"%MovementButtons".hide()
+		$"%HideButtons".set_pressed_no_signal(true)
 	if Input.is_action_pressed("ui_left") or left_is_down:
 		var tile = $"%TileMap".get_cell(map_position.x - 1, map_position.y)
 		if walkable_tiles.has(tile):
