@@ -56,6 +56,8 @@ func say(line, repeat = false):
 		return
 	if completed.has(line):
 		return
+	if line.ends_with("ending"):
+		$"%Teacher".present(line)
 	$"%NarrationContainer".show()
 	$"%Narration".text = lines[line]
 	stream = line_resources[line]
