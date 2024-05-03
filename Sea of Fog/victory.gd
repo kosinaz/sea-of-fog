@@ -1,5 +1,20 @@
 extends Control
 
+var config = ConfigFile.new()
+var audio = true
+var sound = 0
+var music = -10
+
+func _ready():
+	var result = config.load("user://config.cfg")
+	if result == OK:
+		audio = config.get_value("settings", "audio")
+		sound = config.get_value("settings", "sound")
+		music = config.get_value("settings", "music")
+	$AudioStreamPlayerEnding.volume_db = sound if sound > -40 and audio else -100
+	$AudioStreamPlayerMusic.volume_db = (music if music > -50 and audio else -100) - 5
+	$"%Audio".set_pressed_no_signal(not audio)
+	
 func _input(event):
 	if event is InputEventMouseMotion:
 		return
@@ -10,5 +25,12 @@ func _input(event):
 
 func _on_ending_finished():
 	var tween = get_tree().create_tween()
-	tween.tween_property($AudioStreamPlayerMusic, "volume_db", 0, 3)
+	tween.tween_property($AudioStreamPlayerMusic, "volume_db", music, 3)
 	$NarrationContainer.hide()
+
+func _on_audio_toggled(button_pressed):
+	$AudioStreamPlayerMusic.volume_db = -100 if button_pressed else music - 5
+	$AudioStreamPlayerEnding.volume_db = -100 if button_pressed else sound
+	config.set_value("settings", "audio", not button_pressed)
+# warning-ignore:return_value_discarded
+	config.save("user://config.cfg")

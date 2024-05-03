@@ -10,8 +10,21 @@ var left_is_down = false
 var right_is_down = false
 var down_is_down = false
 var walls = []
+var config = ConfigFile.new()
+var audio = true
+var sound = 0
+var music = -10
 
 func _ready():
+	var result = config.load("user://config.cfg")
+	if result == OK:
+		audio = config.get_value("settings", "audio")
+		sound = config.get_value("settings", "sound")
+		music = config.get_value("settings", "music")
+	$"%Narrator".volume_db = sound if sound > -40  and audio else -100
+	$"%Fanfare".volume_db = sound - 10 if sound > -40 and audio else -100
+	$"%Music".volume_db = music if music > -50 and audio else -100
+	$"%Audio".set_pressed_no_signal(not audio)
 	$"%Player/Fov".show()
 	$"%TileMap".hide()
 	$"HUD".show()
@@ -30,6 +43,10 @@ func _ready():
 	walls.append_array($TileMap.get_used_cells_by_id(30))
 	walls.append_array($TileMap.get_used_cells_by_id(31))
 	draw_fov()
+# warning-ignore:return_value_discarded
+	$"%SettingsWindow".connect("sound_changed", self, "_on_sound_changed") 
+# warning-ignore:return_value_discarded
+	$"%SettingsWindow".connect("music_changed", self, "_on_music_changed") 
 
 func _process(_delta):
 	if tween != null and tween.is_running():
@@ -135,3 +152,28 @@ func _on_messages_pressed():
 	$"%Log".text = ""
 	for line in $"%Narrator".completed:
 		$"%Log".text += $"%Narrator".lines[line] + "\n\n"
+
+func _on_audio_toggled(button_pressed):
+	$"%Music".volume_db = -100 if button_pressed else music
+	$"%Narrator".volume_db = -100 if button_pressed else sound
+	$"%Fanfare".volume_db = -100 if button_pressed else sound - 10
+	config.set_value("settings", "audio", not button_pressed)
+# warning-ignore:return_value_discarded
+	config.save("user://config.cfg")
+
+func _on_settings_pressed():
+	$"%SettingsWindow".show()
+	get_tree().paused = true
+
+func _on_sound_changed(value):
+	$"%Narrator".volume_db = value if value > -40 else -100
+	$"%Fanfare".volume_db = value - 10 if value > -40 else -100
+	config.set_value("settings", "sound", value)
+# warning-ignore:return_value_discarded
+	config.save("user://config.cfg")
+
+func _on_music_changed(value):
+	$"%Music".volume_db = value if value > -50 else -100
+	config.set_value("settings", "music", value)
+# warning-ignore:return_value_discarded
+	config.save("user://config.cfg")

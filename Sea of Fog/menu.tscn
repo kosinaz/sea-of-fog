@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://images/bg.png" type="Texture" id=1]
 [ext_resource path="res://images/start.png" type="Texture" id=2]
 [ext_resource path="res://menu.gd" type="Script" id=3]
 [ext_resource path="res://audio/wandering solitude.mp3" type="AudioStream" id=4]
+[ext_resource path="res://images/audio off.png" type="Texture" id=5]
+[ext_resource path="res://images/audio.png" type="Texture" id=6]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_accept"
@@ -22,7 +24,7 @@ anchor_bottom = 1.0
 texture = ExtResource( 1 )
 stretch_mode = 7
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="StartContainer" type="MarginContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -32,7 +34,7 @@ margin_top = -84.0
 margin_right = 64.0
 custom_constants/margin_bottom = 20
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer"]
+[node name="StartButton" type="TextureButton" parent="StartContainer"]
 margin_right = 128.0
 margin_bottom = 64.0
 shortcut_in_tooltip = false
@@ -40,8 +42,27 @@ shortcut = SubResource( 2 )
 texture_normal = ExtResource( 2 )
 stretch_mode = 5
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource( 4 )
 autoplay = true
 
-[connection signal="button_down" from="MarginContainer/TextureButton" to="." method="_on_start_button_down"]
+[node name="AudioContainer" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -84.0
+margin_bottom = 84.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+
+[node name="Audio" type="TextureButton" parent="AudioContainer"]
+unique_name_in_owner = true
+margin_top = 20.0
+margin_right = 64.0
+margin_bottom = 84.0
+toggle_mode = true
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+
+[connection signal="button_down" from="StartContainer/StartButton" to="." method="_on_start_button_down"]
+[connection signal="toggled" from="AudioContainer/Audio" to="." method="_on_audio_button_toggled"]

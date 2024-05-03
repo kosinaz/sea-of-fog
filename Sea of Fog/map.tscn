@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://fov.gd" type="Script" id=1]
 [ext_resource path="res://images/mirror.png" type="Texture" id=2]
@@ -68,6 +68,10 @@
 [ext_resource path="res://teacher.gd" type="Script" id=66]
 [ext_resource path="res://audio/fanfare.mp3" type="AudioStream" id=67]
 [ext_resource path="res://minimap.gd" type="Script" id=68]
+[ext_resource path="res://images/audio off.png" type="Texture" id=69]
+[ext_resource path="res://images/audio.png" type="Texture" id=70]
+[ext_resource path="res://images/settings.png" type="Texture" id=71]
+[ext_resource path="res://settings.tscn" type="PackedScene" id=72]
 
 [sub_resource type="TileSet" id=1]
 4/name = "wall.png 4"
@@ -782,11 +786,11 @@ shortcut = SubResource( 5 )
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 30 )
 
-[sub_resource type="InputEventAction" id=7]
+[sub_resource type="InputEventAction" id=10]
 action = "ui_cancel"
 
 [sub_resource type="ShortCut" id=8]
-shortcut = SubResource( 7 )
+shortcut = SubResource( 10 )
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 5 )
@@ -820,14 +824,20 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource( 11 )
-volume_db = -13.203
+volume_db = -10.0
 autoplay = true
 
 [node name="Narrator" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 18 )
 script = ExtResource( 13 )
+
+[node name="Fanfare" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 67 )
+volume_db = -10.0
 
 [node name="IntroFadeIn" type="AnimationPlayer" parent="."]
 anims/intro = SubResource( 2 )
@@ -840,7 +850,6 @@ margin_right = 744.0
 margin_bottom = 56.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Teacher" type="MarginContainer" parent="HUD"]
 unique_name_in_owner = true
@@ -871,10 +880,6 @@ autowrap = true
 
 [node name="Timer" type="Timer" parent="HUD/Teacher"]
 wait_time = 10.0
-
-[node name="Fanfare" type="AudioStreamPlayer" parent="HUD/Teacher"]
-stream = ExtResource( 67 )
-volume_db = -8.954
 
 [node name="NarrationContainer" type="PanelContainer" parent="HUD"]
 unique_name_in_owner = true
@@ -977,34 +982,55 @@ custom_styles/panel = SubResource( 9 )
 unique_name_in_owner = true
 script = ExtResource( 68 )
 
-[node name="Menu" type="HBoxContainer" parent="HUD"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -148.0
+[node name="MenuLeft" type="MarginContainer" parent="HUD"]
+margin_right = 276.0
 margin_bottom = 64.0
-custom_constants/separation = 0
+custom_constants/margin_left = 20
 
-[node name="HideButtons" type="TextureButton" parent="HUD/Menu"]
-unique_name_in_owner = true
-margin_right = 64.0
-margin_bottom = 64.0
-toggle_mode = true
-texture_normal = ExtResource( 60 )
-texture_pressed = ExtResource( 61 )
-
-[node name="Messages" type="TextureButton" parent="HUD/Menu"]
-margin_left = 64.0
-margin_right = 128.0
+[node name="Messages" type="TextureButton" parent="HUD/MenuLeft"]
+margin_left = 20.0
+margin_right = 276.0
 margin_bottom = 64.0
 shortcut_in_tooltip = false
 shortcut = SubResource( 6 )
 texture_normal = ExtResource( 63 )
 
-[node name="Blank3" type="MarginContainer" parent="HUD/Menu"]
-margin_left = 128.0
-margin_right = 148.0
+[node name="MenuRight" type="MarginContainer" parent="HUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -212.0
 margin_bottom = 64.0
 custom_constants/margin_right = 20
+
+[node name="HBox" type="HBoxContainer" parent="HUD/MenuRight"]
+margin_right = 192.0
+margin_bottom = 64.0
+custom_constants/separation = 0
+
+[node name="HideButtons" type="TextureButton" parent="HUD/MenuRight/HBox"]
+unique_name_in_owner = true
+margin_right = 64.0
+margin_bottom = 64.0
+toggle_mode = true
+texture_normal = ExtResource( 61 )
+texture_pressed = ExtResource( 60 )
+
+[node name="Audio" type="TextureButton" parent="HUD/MenuRight/HBox"]
+unique_name_in_owner = true
+margin_left = 64.0
+margin_right = 128.0
+margin_bottom = 64.0
+toggle_mode = true
+texture_normal = ExtResource( 70 )
+texture_pressed = ExtResource( 69 )
+
+[node name="Settings" type="TextureButton" parent="HUD/MenuRight/HBox"]
+margin_left = 128.0
+margin_right = 192.0
+margin_bottom = 64.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 6 )
+texture_normal = ExtResource( 71 )
 
 [node name="LogPanel" type="Panel" parent="HUD"]
 unique_name_in_owner = true
@@ -1042,6 +1068,8 @@ margin_bottom = 64.0
 shortcut_in_tooltip = false
 shortcut = SubResource( 8 )
 texture_normal = ExtResource( 65 )
+
+[node name="SettingsWindow" parent="HUD" instance=ExtResource( 72 )]
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -1336,7 +1364,9 @@ line = "courtyard mural"
 [connection signal="button_up" from="HUD/MovementButtons/GridContainer/Right" to="." method="_on_right_button_up"]
 [connection signal="button_down" from="HUD/MovementButtons/GridContainer/Down" to="." method="_on_down_button_down"]
 [connection signal="button_up" from="HUD/MovementButtons/GridContainer/Down" to="." method="_on_down_button_up"]
-[connection signal="toggled" from="HUD/Menu/HideButtons" to="." method="_on_hide_buttons_toggled"]
-[connection signal="pressed" from="HUD/Menu/Messages" to="." method="_on_messages_pressed"]
+[connection signal="pressed" from="HUD/MenuLeft/Messages" to="." method="_on_messages_pressed"]
+[connection signal="toggled" from="HUD/MenuRight/HBox/HideButtons" to="." method="_on_hide_buttons_toggled"]
+[connection signal="toggled" from="HUD/MenuRight/HBox/Audio" to="." method="_on_audio_toggled"]
+[connection signal="pressed" from="HUD/MenuRight/HBox/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="HUD/LogPanel/MarginContainer/HideMessages" to="." method="_on_hide_messages_pressed"]
 [connection signal="timeout" from="Timer" to="Triggers/Seed Room Plate" method="_on_timer_timeout"]

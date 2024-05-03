@@ -1,0 +1,133 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://box.tres" type="StyleBox" id=1]
+[ext_resource path="res://settings.gd" type="Script" id=2]
+[ext_resource path="res://images/sound.png" type="Texture" id=3]
+[ext_resource path="res://images/x.png" type="Texture" id=4]
+[ext_resource path="res://images/restart.png" type="Texture" id=5]
+[ext_resource path="res://images/music.png" type="Texture" id=6]
+
+[sub_resource type="InputEventAction" id=7]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
+[node name="SettingsWindow" type="MarginContainer"]
+pause_mode = 2
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -170.0
+margin_top = 100.0
+margin_right = 170.0
+margin_bottom = 340.0
+script = ExtResource( 2 )
+
+[node name="SettingsPanel" type="Panel" parent="."]
+margin_right = 340.0
+margin_bottom = 240.0
+custom_styles/panel = ExtResource( 1 )
+
+[node name="MarginContainer2" type="MarginContainer" parent="SettingsPanel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -74.0
+margin_bottom = 74.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+
+[node name="CloseSettings" type="TextureButton" parent="SettingsPanel/MarginContainer2"]
+margin_top = 10.0
+margin_right = 64.0
+margin_bottom = 74.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 8 )
+texture_normal = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -114.0
+margin_right = 100.0
+margin_bottom = 114.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VFlowContainer" type="VBoxContainer" parent="SettingsPanel/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 180.0
+margin_bottom = 208.0
+custom_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPanel/MarginContainer/VFlowContainer"]
+margin_right = 160.0
+margin_bottom = 32.0
+custom_constants/separation = 10
+
+[node name="TextureButton" type="TextureButton" parent="SettingsPanel/MarginContainer/VFlowContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 3 )
+
+[node name="SoundVolume" type="HSlider" parent="SettingsPanel/MarginContainer/VFlowContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 42.0
+margin_right = 142.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_vertical = 1
+min_value = -40.0
+max_value = 20.0
+step = 10.0
+tick_count = 7
+ticks_on_borders = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsPanel/MarginContainer/VFlowContainer"]
+margin_top = 52.0
+margin_right = 160.0
+margin_bottom = 84.0
+custom_constants/separation = 10
+
+[node name="TextureButton" type="TextureButton" parent="SettingsPanel/MarginContainer/VFlowContainer/HBoxContainer2"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 6 )
+
+[node name="MusicVolume" type="HSlider" parent="SettingsPanel/MarginContainer/VFlowContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 42.0
+margin_right = 142.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 10.0
+step = 10.0
+value = -10.0
+tick_count = 7
+ticks_on_borders = true
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsPanel/MarginContainer/VFlowContainer"]
+margin_top = 104.0
+margin_right = 160.0
+margin_bottom = 188.0
+custom_constants/margin_top = 20
+
+[node name="RestartButton" type="TextureButton" parent="SettingsPanel/MarginContainer/VFlowContainer/MarginContainer"]
+margin_top = 20.0
+margin_right = 160.0
+margin_bottom = 84.0
+texture_normal = ExtResource( 5 )
+
+[connection signal="pressed" from="SettingsPanel/MarginContainer2/CloseSettings" to="." method="_on_close_settings_pressed"]
+[connection signal="value_changed" from="SettingsPanel/MarginContainer/VFlowContainer/HBoxContainer/SoundVolume" to="." method="_on_sound_volume_value_changed"]
+[connection signal="value_changed" from="SettingsPanel/MarginContainer/VFlowContainer/HBoxContainer2/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="SettingsPanel/MarginContainer/VFlowContainer/MarginContainer/RestartButton" to="." method="_on_restart_button_pressed"]

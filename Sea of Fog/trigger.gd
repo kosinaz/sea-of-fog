@@ -13,6 +13,7 @@ func on_move():
 		$"%TileMap2".set_cell(29, 6, 14)
 		$"%TileMap".set_cell(26, 20, 9)
 		$"%Narrator".disable("door")
+		get_parent().get_parent().walls.erase(Vector2(26, 20))
 	if line == "courtyard ending":
 		$"%TileMap".set_cell(2, 46, 21)
 		$"%TileMap2".set_cell(2, 46, 21)
@@ -77,6 +78,8 @@ func on_move():
 		$"%TileMap2".set_cell(39, 31, 9)
 		$"%Narrator".say("colonnade ending")
 		$"%Narrator".disable("colonnade door")
+		get_parent().get_parent().walls.erase(Vector2(39, 31))
+		get_parent().get_parent().draw_fov()
 
 func _on_timer_timeout():
 		$"%TileMap".set_cell(32, 29, 45)

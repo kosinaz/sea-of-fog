@@ -17,7 +17,7 @@ func present(lesson):
 	show()
 	$Panel/Lesson.text = "Lesson " + str(lesson_id) + "/6 Learned: \n" + lessons[lesson]
 	$Timer.start()
-	$Fanfare.play()
+	$"%Fanfare".play()
 	lesson_id += 1
 
 func _on_timer_timeout():
