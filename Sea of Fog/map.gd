@@ -9,15 +9,27 @@ var up_is_down = false
 var left_is_down = false
 var right_is_down = false
 var down_is_down = false
+var walls = []
 
 func _ready():
 	$"%Player/Fov".show()
 	$"%TileMap".hide()
 	$"HUD".show()
 	map_position = $"%TileMap".world_to_map($"%Player".position)
-	draw_fov()
 	$IntroFadeIn.play("intro")
 	$Narrator.say("intro")
+	walls = $TileMap.get_used_cells_by_id(4)
+	walls.append_array($TileMap.get_used_cells_by_id(10))
+	walls.append_array($TileMap.get_used_cells_by_id(12))
+	walls.append_array($TileMap.get_used_cells_by_id(17))
+	walls.append_array($TileMap.get_used_cells_by_id(23))
+	walls.append_array($TileMap.get_used_cells_by_id(24))
+	walls.append_array($TileMap.get_used_cells_by_id(25))
+	walls.append_array($TileMap.get_used_cells_by_id(28))
+	walls.append_array($TileMap.get_used_cells_by_id(29))
+	walls.append_array($TileMap.get_used_cells_by_id(30))
+	walls.append_array($TileMap.get_used_cells_by_id(31))
+	draw_fov()
 
 func _process(_delta):
 	if tween != null and tween.is_running():
@@ -68,17 +80,6 @@ func on_move():
 			trigger.on_move()
 
 func draw_fov():
-	var walls = $TileMap.get_used_cells_by_id(4)
-	walls.append_array($TileMap.get_used_cells_by_id(10))
-	walls.append_array($TileMap.get_used_cells_by_id(12))
-	walls.append_array($TileMap.get_used_cells_by_id(17))
-	walls.append_array($TileMap.get_used_cells_by_id(23))
-	walls.append_array($TileMap.get_used_cells_by_id(24))
-	walls.append_array($TileMap.get_used_cells_by_id(25))
-	walls.append_array($TileMap.get_used_cells_by_id(28))
-	walls.append_array($TileMap.get_used_cells_by_id(29))
-	walls.append_array($TileMap.get_used_cells_by_id(30))
-	walls.append_array($TileMap.get_used_cells_by_id(31))
 	var current_fov = fov.calculate(map_position.x, map_position.y, 7, walls)
 	var tile = $"%TileMap".get_cell(map_position.x, map_position.y)
 	if outside_tiles.has(tile):
@@ -90,7 +91,7 @@ func draw_fov():
 		for y in range(-12, 12):
 			$"%TileMap2".set_cell(map_position.x + x, map_position.y + y, 11 if not outside_tiles.has(tile) else 0)
 	for cell in current_fov:
-		$"%TileMap2".set_cell(cell.x, cell.y, $"%TileMap".get_cell(cell.x, cell.y), false, false, false, $"%TileMap".get_cell_autotile_coord(cell.x, cell.y))
+		$"%TileMap2".set_cell(cell.x, cell.y, $"%TileMap".get_cell(cell.x, cell.y))
 	$"%MiniMap".add(current_fov, map_position)
 
 func _on_narrator_finished():
