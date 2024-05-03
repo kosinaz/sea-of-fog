@@ -87,7 +87,7 @@ func draw_fov():
 		$"%Player/Fov".modulate = Color(0, 0, 0, 1)
 	$"%TileMap2".clear()
 	for x in range(-16, 16):
-		for y in range(-8, 8):
+		for y in range(-12, 12):
 			$"%TileMap2".set_cell(map_position.x + x, map_position.y + y, 11 if not outside_tiles.has(tile) else 0)
 	for cell in current_fov:
 		$"%TileMap2".set_cell(cell.x, cell.y, $"%TileMap".get_cell(cell.x, cell.y), false, false, false, $"%TileMap".get_cell_autotile_coord(cell.x, cell.y))

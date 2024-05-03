@@ -810,7 +810,6 @@ unique_name_in_owner = true
 position = Vector2( 176, -128 )
 
 [node name="Fov" type="Sprite" parent="Player"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 8, 8 )
 texture = ExtResource( 10 )
