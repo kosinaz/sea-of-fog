@@ -44,6 +44,9 @@ var lines = {
 	"colonnade ending": "As I place the crystal orb into the hand of the statue, the heavy stone door behind it begins to slowly descend into the ground, revealing a long staircase.",
 	"colonnade statue": "Examining the statue's outstretched palm, it appears perfectly shaped to hold an orb of some kind.",
 	"colonnade door": "The door stands tall and forbidding, closed tight, guarding its mysteries. I try to open it, but it remains steadfast, refusing to yield.",
+	"maze intro": "As I step into the chamber, darkness envelops me like a thick cloak. There's no discernible path ahead, only the faint glimmer of light in the distance.",
+	"maze ending": "Stepping into the light, a hidden pressure plate beneath my foot begins to shift, accompanied by the distant sound of moving rocks and the gentle flow of water. Another bridge, no doubt, ascends from the river below.",
+	"maze riddle": "In the depths of darkness, where shadows thrive, find your own light to help you survive."
 }
 
 var line_resources = {}

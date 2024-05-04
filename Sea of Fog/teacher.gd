@@ -7,6 +7,8 @@ var lessons = {
 	"seasons altar ending": "Follow the rules of nature as time goes by, and you will reap the rewards of harmony.",
 	"seed room ending": "Patience fosters growth; allow yourself the time to flourish.",
 	"colonnade ending": "You hold your future in your hand; it's yours to shape as you choose.",
+	"maze ending": "Discover your own light amidst darkness, guiding your path even in the most obscure moments.",
+	"cave ending": "Trust in your inner guidance to lead you through the shadows.",
 }
 
 var lesson_id = 1

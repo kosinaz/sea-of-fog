@@ -5,3 +5,39 @@
 "Be patient, sometimes results are not instant, give yourself the time to grow.
 "Let go of your past."
 
+1. Path of Shadows: Players must navigate through a maze shrouded in darkness, using only faint glimmers of light to guide their way.
+Passable but nontransparent void maze, with an always visible light in the middle of the room
+Lesson: "Upon stepping on the path of shadows, find your light that will be your guide."
+
+
+5. Adaptability: Players find themselves in a puzzle where the environment constantly changes, reflecting the unpredictable nature of the future. They must quickly adapt to shifting terrain, obstacles, and rules to progress, emphasizing the importance of flexibility and resilience in the face of uncertainty.
+A room of randomly moving platforms
+Lesson: "Adapt to the unpredictable nature of the future."
+
+6. Synchronicity: This puzzle challenges players to synchronize their actions with echoes or shadows of their past selves, symbolizing the interconnectedness of past, present, and future. By aligning their movements with these echoes, players unlock new pathways and solutions, illustrating how the past influences the present and shapes the future.
+A room where the player has to repeat his own steps over and over again to gradually change the room
+Lesson: "Past influences the present and shapes the future." 
+
+8. Facing Fear: In this puzzle, players must confront their fears manifested within the fog. These fears take various forms, such as ominous shadows or menacing creatures, and players must find ways to overcome them to progress. This puzzle explores the idea that facing and overcoming fear is essential for moving forward into the unknown future.
+A shadow that appears closed and closed to the player, if the player flees, it catches him and teleports back to the beginning, if the player never stepping back, it back upon
+Lesson: Face your fears.
+
+2. Cave System:
+"Amidst the shadows deep and dark, lies the secret to ignite the spark. Traverse the caverns, brave and bold, to uncover truths yet to be told."
+Another dark maze, this time a cave, which can be only traversed by looking at the map. Special condition based on a long term trigger to only show the fov on the minimap.
+Lesson: Sometimes you'll find yourself alone in the middle of the unknown, don't give up, use what you have to find your way.
+Intro: The darkness envelops me as I step into the cavern. I see nothing that would offer me a glimmer of hope amidst the gloom. I'm on my own, counting my steps, mapping my surroundings only within my head.
+
+7. Foggy Path:
+"Through the mist, where shadows creep, lies the path you seek to keep. Follow the whispers on the breeze, to find the truth that sets you free."
+11. Whispers of the Wind:
+"In the whispers of the wind's soft sigh, echoes of the future lie. Listen closely to the song it sings, to unveil the truth that fate brings."
+Whispers can be heard repeatedly saying east and west and south after each step. After a few steps the player arrives on an unmarked grass tile where he finds a key to another puzzle.
+Lesson: Listen to the guideance, even if it's coming from unexpected sources.
+Intro: "Amidst the howling winds of the open plains, I hear whispers of a destiny yet to unfold. The wind carries secrets on its breath, but its message is cryptic and fleeting. If I can listen closely to the whispers of the wind, perhaps I can find the path that leads me home."
+
+8. Ruins of Temples:
+"Amidst the ruins of ancient grace, lies the key to a future's embrace. Listen closely to the temple's call, to unravel the mysteries that befall."
+Repeating bell sounds, C-D-E, in front of four bells: C-E-F-D, repeat the sequence to solve the puzzle
+Lesson: Remember what you learned.
+
