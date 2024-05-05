@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/maze ending.mp3-77970f4b7778fa094a76e17a61081657.mp3str"
+
+[deps]
+
+source_file="res://audio/maze ending.mp3"
+dest_files=[ "res://.import/maze ending.mp3-77970f4b7778fa094a76e17a61081657.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

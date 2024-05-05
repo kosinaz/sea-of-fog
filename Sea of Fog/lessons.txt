@@ -36,8 +36,15 @@ Whispers can be heard repeatedly saying east and west and south after each step.
 Lesson: Listen to the guideance, even if it's coming from unexpected sources.
 Intro: "Amidst the howling winds of the open plains, I hear whispers of a destiny yet to unfold. The wind carries secrets on its breath, but its message is cryptic and fleeting. If I can listen closely to the whispers of the wind, perhaps I can find the path that leads me home."
 
-8. Ruins of Temples:
+8. Belfry ruins:
 "Amidst the ruins of ancient grace, lies the key to a future's embrace. Listen closely to the temple's call, to unravel the mysteries that befall."
 Repeating bell sounds, C-D-E, in front of four bells: C-E-F-D, repeat the sequence to solve the puzzle
 Lesson: Remember what you learned.
 
+Clock tower ruins
+The clock is stopped, the player needs to set the time over and over again, admitting that time flies by, until 6 tries, the clock starts to tick on its own.
+Lesson: Accept the movement of time.
+
+Plains of motion
+A plain with a number of interesting looking objects, which are there just to distract the player and make him stop. A lever on end with a riddle stating the lesson, opening a door, on the other end, but it closes if the player stops half way.
+Lesson: Don't stop, keep moving towards your goal

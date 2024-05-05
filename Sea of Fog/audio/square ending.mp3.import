@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/square ending.mp3-ffffc627d20aa361b45b2a6c71c6d66f.mp3str"
+
+[deps]
+
+source_file="res://audio/square ending.mp3"
+dest_files=[ "res://.import/square ending.mp3-ffffc627d20aa361b45b2a6c71c6d66f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

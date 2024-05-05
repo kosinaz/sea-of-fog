@@ -7,6 +7,7 @@ var lessons = {
 	"seasons altar ending": "Follow the rules of nature as time goes by, and you will reap the rewards of harmony.",
 	"seed room ending": "Patience fosters growth; allow yourself the time to flourish.",
 	"colonnade ending": "You hold your future in your hand; it's yours to shape as you choose.",
+	"square ending": "Adapt to the unpredictable nature of the future.",
 	"maze ending": "Discover your own light amidst darkness, guiding your path even in the most obscure moments.",
 	"cave ending": "Trust in your inner guidance to lead you through the shadows.",
 }
@@ -17,7 +18,7 @@ func present(lesson):
 	if lesson == "ending":
 		return
 	show()
-	$Panel/Lesson.text = "Lesson " + str(lesson_id) + "/6 Learned: \n" + lessons[lesson]
+	$Panel/Lesson.text = "Lesson " + str(lesson_id) + "/" + str(lessons.size()) + " Learned: \n" + lessons[lesson]
 	$Timer.start()
 	$"%Fanfare".play()
 	lesson_id += 1

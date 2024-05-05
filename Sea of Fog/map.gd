@@ -1,7 +1,7 @@
 extends Node2D
 
 var fov = Fov.new()
-var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26, 27, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51, 53, 55]
+var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26, 27, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51, 53, 55, 57]
 var outside_tiles = [7, 9, 19, 21, 26, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 49]
 var tween = null
 var map_position = Vector2()
@@ -44,6 +44,7 @@ func _ready():
 	walls.append_array($TileMap.get_used_cells_by_id(31))
 	walls.append_array($TileMap.get_used_cells_by_id(54))
 	walls.append_array($TileMap.get_used_cells_by_id(56))
+	walls.append_array($TileMap.get_used_cells_by_id(57))
 	draw_fov()
 # warning-ignore:return_value_discarded
 	$"%SettingsWindow".connect("sound_changed", self, "_on_sound_changed") 
@@ -53,7 +54,7 @@ func _ready():
 func _process(_delta):
 	if tween != null and tween.is_running():
 		return
-	$Player/AnimatedSprite.visible = $TileMap.get_cellv(map_position) != 53
+	$Player/AnimatedSprite.visible = not [53, 57].has($TileMap.get_cellv(map_position))
 	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up"):
 		$"%MovementButtons".hide()
 		$"%HideButtons".set_pressed_no_signal(true)
