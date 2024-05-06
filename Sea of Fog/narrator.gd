@@ -48,7 +48,9 @@ var lines = {
 	"square ending": "The moving platforms, once a daunting obstacle, are now conquered. I stand before the entrance of the tunnel and  despite the darkness that looms ahead, I'm drawn to the unknown like a moth to a flame.",
 	"maze intro": "As I step into the chamber, darkness envelops me like a thick cloak. There's no discernible path ahead, only the faint glimmer of light in the distance.",
 	"maze ending": "Stepping into the light, a hidden pressure plate beneath my foot begins to shift, accompanied by the distant sound of moving rocks and the gentle flow of water. Another bridge, no doubt, ascends from the river below.",
-	"maze riddle": "\"In the depths of darkness, where shadows thrive, find your own light to help you survive.\""
+	"maze riddle": "\"In the depths of darkness, where shadows thrive, find your own light to help you survive.\"",
+	"clock tower intro": "I step into the remnants of a once-grand clock tower. Across the hall, the broken clock, frozen in time. In front of it, discarded gears and a broken pendulum lie strewn across the ground, next to a pile of rocks. Beside the clock, a riddle etched onto the wall beckons me to unravel its message.",
+	"clock tower ending": "After numerous attempts, I find myself setting the clock once more, almost resigned to the repetitive task. Suddenly, a subtle shift occurs, the hands begin to move on their own accord. And then, a rusted key falls to the ground from the hidden compartment of the clock. I quickly take it."
 }
 
 var line_resources = {}
