@@ -181,3 +181,21 @@ func _on_music_changed(value):
 	config.set_value("settings", "music", value)
 # warning-ignore:return_value_discarded
 	config.save("user://config.cfg")
+
+func _on_square_timer_timeout():
+	var id = 0
+	for x in [41, 42, 44, 45]:
+		for y in range(23, 28):
+			if map_position == Vector2(x, y):
+				continue
+			id = [9, 52, 52, 52][randi() % 4]
+			$"%TileMap".set_cell(x, y, id)
+			$"%TileMap2".set_cell(x, y, id)
+	if map_position != Vector2(43, 24):
+		id = [9, 52, 52, 52][randi() % 4]
+		$"%TileMap".set_cell(43, 24, id)
+		$"%TileMap2".set_cell(43, 24, id)
+	if map_position != Vector2(43, 26):
+		id = [9, 52, 52, 52][randi() % 4]
+		$"%TileMap".set_cell(43, 26, id)
+		$"%TileMap2".set_cell(43, 26, id)

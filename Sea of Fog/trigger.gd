@@ -80,6 +80,16 @@ func on_move():
 		$"%Narrator".disable("colonnade door")
 		get_parent().get_parent().walls.erase(Vector2(39, 31))
 		get_parent().get_parent().draw_fov()
+	if line == "square ending":
+		for x in range(41, 46):
+			for y in range(23, 28):
+				$"%TileMap".set_cell(x, y, 9)
+				$"%TileMap2".set_cell(x, y, 9)
+		$"%SquareTimer".stop()
+	if line == "maze ending":
+		$"%TileMap".set_cell(37, 5, 9)
+		$"%TileMap2".set_cell(37, 5, 9)
+		
 
 func _on_timer_timeout():
 		$"%TileMap".set_cell(32, 29, 45)
