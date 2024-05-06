@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/invention hall strength ending.mp3-bdd7d4265c17c8191e19a6f84a34168d.mp3str"
+
+[deps]
+
+source_file="res://audio/invention hall strength ending.mp3"
+dest_files=[ "res://.import/invention hall strength ending.mp3-bdd7d4265c17c8191e19a6f84a34168d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

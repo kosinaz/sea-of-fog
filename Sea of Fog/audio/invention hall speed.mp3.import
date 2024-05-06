@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/invention hall speed.mp3-d404d710857c0ac3c59cce8f49cfa6e0.mp3str"
+
+[deps]
+
+source_file="res://audio/invention hall speed.mp3"
+dest_files=[ "res://.import/invention hall speed.mp3-d404d710857c0ac3c59cce8f49cfa6e0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

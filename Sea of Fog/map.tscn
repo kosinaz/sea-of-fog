@@ -1081,7 +1081,7 @@ format = 1
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 unique_name_in_owner = true
-position = Vector2( 416, 336 )
+position = Vector2( 256, 352 )
 
 [node name="Fov" type="Sprite" parent="Player"]
 visible = false

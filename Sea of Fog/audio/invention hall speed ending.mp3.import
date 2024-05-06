@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/invention hall speed ending.mp3-86ea1d5edff291c66d7592e53a2dedc5.mp3str"
+
+[deps]
+
+source_file="res://audio/invention hall speed ending.mp3"
+dest_files=[ "res://.import/invention hall speed ending.mp3-86ea1d5edff291c66d7592e53a2dedc5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

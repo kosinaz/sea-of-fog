@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/invention hall cunning.mp3-2afff20c49a5de942a62212ba2883ffa.mp3str"
+
+[deps]
+
+source_file="res://audio/invention hall cunning.mp3"
+dest_files=[ "res://.import/invention hall cunning.mp3-2afff20c49a5de942a62212ba2883ffa.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

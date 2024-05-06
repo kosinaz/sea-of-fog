@@ -56,6 +56,17 @@ var lines = {
 	"clock tower rocks": "The pile of rocks seem insignificant, just ordinary stones strewn about the ruins.",
 	"clock tower pendulum": "While the pendulum may look significant, it's clear that it's no longer functional and serves no purpose in fixing the clock.",
 	"clock tower gear": "At first glance, this rusty gear seems like a crucial component of the clock tower mechanism. However, upon closer inspection, it appears to be too corroded to be of any use.",
+	"invention hall intro": "Entering the vast hall, my gaze is drawn to three towering automatons standing in stoic vigilance. Across from them stands a peculiar steam engine, its purpose uncertain. Scattered about the floor are various contraptions and gears, while at the far end looms an imposing door.",
+	"invention hall ending": "Finally, the door opens.",
+	"invention hall strength": "\"I stand tall, guardian of strength, prove your worth, enthrall my arm at length.\" As I try to move the arm, it remains steadfast, refusing to yield to my strength.",
+	"invention hall strength ending": "I secure the wire to the automaton's arm and activate the engine. As the arm complies, a mechanical hum emanates from the direction of the door.",
+	"invention hall speed": "\"I am the guardian of speed. In my palm, the marble you must heed.\" As I attempt to snatch the marble from the motionless palm, the automaton swiftly retracts it, leaving me empty-handed.",
+	"invention hall speed ending": "The magnet does its job. With the marble in hand, I hear a distant hum of machinery emanating from the door.",
+	"invention hall cunning": "\"I am the guardian of cunning and sly. Unlock my mind to pass me by.\" I'm lost. There's nothing on this automaton to guide me.",
+	"invention hall cunning ending": "I press the button, and immediately, I hear mechanical noises emanating from the direction of the door.",
+	"invention hall wire": "I notice a wire on the floor beside the engine. A sudden idea strikes, and I swiftly grab it, intending to use it to my advantage by attaching it to the automaton.",
+	"invention hall magnet": "I discover a small cabinet on the wall containing a sturdy magnet. It should aid in slowing down those swiftly moving steel appendages.",
+	"invention hall book": "I discover a workbook lying on the floor, containing detailed blueprints of the automatons. It highlights a hidden button within the head that can deactivate the machine.",
 }
 var line_resources = {}
 
