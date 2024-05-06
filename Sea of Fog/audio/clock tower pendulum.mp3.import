@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/clock tower pendulum.mp3-80977fc2a72d4fbc942979b7f4103d4a.mp3str"
+
+[deps]
+
+source_file="res://audio/clock tower pendulum.mp3"
+dest_files=[ "res://.import/clock tower pendulum.mp3-80977fc2a72d4fbc942979b7f4103d4a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

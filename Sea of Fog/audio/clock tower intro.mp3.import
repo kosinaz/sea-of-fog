@@ -11,5 +11,5 @@ dest_files=[ "res://.import/clock tower intro.mp3-b326a80b054f7bd1b3201d576c613d
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

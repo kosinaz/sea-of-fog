@@ -1,8 +1,8 @@
 extends Node2D
 
 var fov = Fov.new()
-var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26, 27, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51, 53, 55, 57]
-var outside_tiles = [7, 9, 19, 21, 26, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 49]
+var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26, 27, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51, 53, 55, 57, 59, 60]
+var outside_tiles = [7, 9, 19, 21, 26, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 49, 59, 60]
 var tween = null
 var map_position = Vector2()
 var up_is_down = false
@@ -45,6 +45,7 @@ func _ready():
 	walls.append_array($TileMap.get_used_cells_by_id(54))
 	walls.append_array($TileMap.get_used_cells_by_id(56))
 	walls.append_array($TileMap.get_used_cells_by_id(57))
+	walls.append_array($TileMap.get_used_cells_by_id(61))
 	draw_fov()
 # warning-ignore:return_value_discarded
 	$"%SettingsWindow".connect("sound_changed", self, "_on_sound_changed") 

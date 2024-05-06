@@ -11,5 +11,5 @@ dest_files=[ "res://.import/clock tower ending.mp3-fe37fc1588150abbd2b135b23a369
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

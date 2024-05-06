@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/clock tower riddle.mp3-39159d4166ba028c9de940f74c4ea1be.mp3str"
+
+[deps]
+
+source_file="res://audio/clock tower riddle.mp3"
+dest_files=[ "res://.import/clock tower riddle.mp3-39159d4166ba028c9de940f74c4ea1be.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

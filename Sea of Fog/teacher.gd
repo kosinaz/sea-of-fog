@@ -9,7 +9,7 @@ var lessons = {
 	"colonnade ending": "You hold your future in your hand; it's yours to shape as you choose.",
 	"square ending": "Adapt to the unpredictable nature of the future.",
 	"maze ending": "Discover your own light amidst darkness, guiding your path even in the most obscure moments.",
-	"cave ending": "Trust in your inner guidance to lead you through the shadows.",
+	"clock tower ending": "Embrace the passage of time, for with each tick of the clock, new opportunities unfold.",
 }
 
 var lesson_id = 1

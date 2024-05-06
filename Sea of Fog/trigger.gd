@@ -3,6 +3,8 @@ extends Node2D
 export var line = ""
 export var repeat = false
 
+var clock_tick = 0
+
 func on_move():
 	if line == "ending":
 	# warning-ignore:return_value_discarded
@@ -89,6 +91,11 @@ func on_move():
 	if line == "maze ending":
 		$"%TileMap".set_cell(37, 5, 9)
 		$"%TileMap2".set_cell(37, 5, 9)
+	if line == "clock tower clock":
+		if clock_tick == 3:
+			$"%Narrator".say("clock tower ending")
+		clock_tick += 1
+		
 		
 
 func _on_timer_timeout():
