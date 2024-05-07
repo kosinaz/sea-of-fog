@@ -11,5 +11,5 @@ dest_files=[ "res://.import/invention hall book.mp3-9b337f61e6f0f68dd9f4967a49e9
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

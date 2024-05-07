@@ -11,5 +11,5 @@ dest_files=[ "res://.import/invention hall cunning ending.mp3-aee3d1ffdf8cc8fe0f
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

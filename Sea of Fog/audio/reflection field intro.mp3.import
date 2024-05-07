@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/reflection field intro.mp3-5d26bd5bd5e1acf537862aae200791d8.mp3str"
+
+[deps]
+
+source_file="res://audio/reflection field intro.mp3"
+dest_files=[ "res://.import/reflection field intro.mp3-5d26bd5bd5e1acf537862aae200791d8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

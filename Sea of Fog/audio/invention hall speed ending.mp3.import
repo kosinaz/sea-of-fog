@@ -11,5 +11,5 @@ dest_files=[ "res://.import/invention hall speed ending.mp3-86ea1d5edff291c66d75
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

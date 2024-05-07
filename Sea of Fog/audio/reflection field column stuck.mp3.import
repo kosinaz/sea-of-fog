@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/reflection field column stuck.mp3-28a66fdbb83ac9fff665cda36d7d168b.mp3str"
+
+[deps]
+
+source_file="res://audio/reflection field column stuck.mp3"
+dest_files=[ "res://.import/reflection field column stuck.mp3-28a66fdbb83ac9fff665cda36d7d168b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

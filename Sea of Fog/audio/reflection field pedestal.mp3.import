@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/reflection field pedestal.mp3-1c8f924a03525a5e4bd671172b51c521.mp3str"
+
+[deps]
+
+source_file="res://audio/reflection field pedestal.mp3"
+dest_files=[ "res://.import/reflection field pedestal.mp3-1c8f924a03525a5e4bd671172b51c521.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

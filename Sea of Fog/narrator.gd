@@ -58,6 +58,8 @@ var lines = {
 	"clock tower gear": "At first glance, this rusty gear seems like a crucial component of the clock tower mechanism. However, upon closer inspection, it appears to be too corroded to be of any use.",
 	"invention hall intro": "Entering the vast hall, my gaze is drawn to three towering automatons standing in stoic vigilance. Across from them stands a peculiar steam engine, its purpose uncertain. Scattered about the floor are various contraptions and gears, while at the far end looms an imposing door.",
 	"invention hall ending": "Finally, the door opens.",
+	"invention hall door": "This door is different. It requires a key. One I must seek out.",
+	"invention hall riddle": "\"Strength, speed, cunning, three trials to pass, to reveal my hidden path.\"",
 	"invention hall strength": "\"I stand tall, guardian of strength, prove your worth, enthrall my arm at length.\" As I try to move the arm, it remains steadfast, refusing to yield to my strength.",
 	"invention hall strength ending": "I secure the wire to the automaton's arm and activate the engine. As the arm complies, a mechanical hum emanates from the direction of the door.",
 	"invention hall speed": "\"I am the guardian of speed. In my palm, the marble you must heed.\" As I attempt to snatch the marble from the motionless palm, the automaton swiftly retracts it, leaving me empty-handed.",
@@ -67,6 +69,12 @@ var lines = {
 	"invention hall wire": "I notice a wire on the floor beside the engine. A sudden idea strikes, and I swiftly grab it, intending to use it to my advantage by attaching it to the automaton.",
 	"invention hall magnet": "I discover a small cabinet on the wall containing a sturdy magnet. It should aid in slowing down those swiftly moving steel appendages.",
 	"invention hall book": "I discover a workbook lying on the floor, containing detailed blueprints of the automatons. It highlights a hidden button within the head that can deactivate the machine.",
+	"reflection field intro": "Entering the expansive garden, I'm met with a curious sight. Rows of columns punctuate the landscape, and at the heart of it all, a statue, oddly resembling myself, grips a cane in its hand. Across from it lies a mirrored scene, with columns shifted and an empty pedestal.",
+	"reflection field ending": "As I stand on the pedestal, a soft click emanates from below, and a hidden compartment opens. A cane, identical to the one clutched by my statue, springs into my hand. Upon closer examination, I notice the inscription: 'Cane of Guidance.' At its apex, a mysterious gem catches my eye, offering a view of the world around me like a living map in this Sea of Fog. With it, I know I'll never lose my way again.",
+	"reflection field statue": "As I approach the statue, a shiver runs down my spine. It's an eerie likeness of myself, down to the smallest detail, but holding a cane that I've never seen before.",
+	"reflection field column moves": "Ah, as expected, these columns can be shifted.",
+	"reflection field column stuck": "This column won't budge.",
+	"reflection field pedestal": "Standing on the pedestal yields no result. It seems there's still something missing from the picture.",
 }
 var line_resources = {}
 

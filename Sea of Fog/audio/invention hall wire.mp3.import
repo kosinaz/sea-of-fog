@@ -11,5 +11,5 @@ dest_files=[ "res://.import/invention hall wire.mp3-85e147a397acdb7a553a477e1ede
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

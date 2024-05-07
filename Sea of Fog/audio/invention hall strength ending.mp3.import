@@ -11,5 +11,5 @@ dest_files=[ "res://.import/invention hall strength ending.mp3-bdd7d4265c17c8191
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

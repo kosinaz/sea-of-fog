@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/invention hall door.mp3-984893f3b2fe0ae7bb8e42f6a17ce00a.mp3str"
+
+[deps]
+
+source_file="res://audio/invention hall door.mp3"
+dest_files=[ "res://.import/invention hall door.mp3-984893f3b2fe0ae7bb8e42f6a17ce00a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

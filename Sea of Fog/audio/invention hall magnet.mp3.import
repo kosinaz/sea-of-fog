@@ -11,5 +11,5 @@ dest_files=[ "res://.import/invention hall magnet.mp3-316ac20eed8ee748f22cd56e00
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

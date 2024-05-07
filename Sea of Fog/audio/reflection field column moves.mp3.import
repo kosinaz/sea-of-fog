@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/reflection field column moves.mp3-7b0a018c325a6061e9fd99c7b61ae8f7.mp3str"
+
+[deps]
+
+source_file="res://audio/reflection field column moves.mp3"
+dest_files=[ "res://.import/reflection field column moves.mp3-7b0a018c325a6061e9fd99c7b61ae8f7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
