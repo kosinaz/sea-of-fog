@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=117 format=2]
 
 [ext_resource path="res://fov.gd" type="Script" id=1]
 [ext_resource path="res://images/mirror.png" type="Texture" id=2]
@@ -1154,11 +1154,29 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
-[sub_resource type="InputEventAction" id=5]
+[sub_resource type="InputEventAction" id=15]
+action = "backpack"
+
+[sub_resource type="ShortCut" id=16]
+shortcut = SubResource( 15 )
+
+[sub_resource type="InputEventAction" id=13]
+action = "lessons"
+
+[sub_resource type="ShortCut" id=14]
+shortcut = SubResource( 13 )
+
+[sub_resource type="InputEventAction" id=11]
 action = "messages"
 
-[sub_resource type="ShortCut" id=6]
-shortcut = SubResource( 5 )
+[sub_resource type="ShortCut" id=12]
+shortcut = SubResource( 11 )
+
+[sub_resource type="InputEventAction" id=17]
+action = "settings"
+
+[sub_resource type="ShortCut" id=18]
+shortcut = SubResource( 17 )
 
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 30 )
@@ -1370,28 +1388,28 @@ margin_left = 20.0
 margin_right = 276.0
 margin_bottom = 64.0
 
-[node name="Messages" type="TextureButton" parent="HUD/MenuLeft/HBoxContainer"]
-margin_right = 64.0
+[node name="Backpack" type="TextureButton" parent="HUD/MenuLeft/HBoxContainer"]
+margin_left = 136.0
+margin_right = 200.0
 margin_bottom = 64.0
 shortcut_in_tooltip = false
-shortcut = SubResource( 6 )
-texture_normal = ExtResource( 63 )
+shortcut = SubResource( 16 )
+texture_normal = ExtResource( 102 )
 
 [node name="Lessons" type="TextureButton" parent="HUD/MenuLeft/HBoxContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
 shortcut_in_tooltip = false
-shortcut = SubResource( 6 )
+shortcut = SubResource( 14 )
 texture_normal = ExtResource( 100 )
 
-[node name="Backpack" type="TextureButton" parent="HUD/MenuLeft/HBoxContainer"]
-margin_left = 136.0
-margin_right = 200.0
+[node name="Messages" type="TextureButton" parent="HUD/MenuLeft/HBoxContainer"]
+margin_right = 64.0
 margin_bottom = 64.0
 shortcut_in_tooltip = false
-shortcut = SubResource( 6 )
-texture_normal = ExtResource( 102 )
+shortcut = SubResource( 12 )
+texture_normal = ExtResource( 63 )
 
 [node name="MenuRight" type="MarginContainer" parent="HUD"]
 anchor_left = 1.0
@@ -1427,7 +1445,7 @@ margin_left = 128.0
 margin_right = 192.0
 margin_bottom = 64.0
 shortcut_in_tooltip = false
-shortcut = SubResource( 6 )
+shortcut = SubResource( 18 )
 texture_normal = ExtResource( 71 )
 
 [node name="BackpackWindow" parent="HUD" instance=ExtResource( 101 )]
@@ -2115,9 +2133,9 @@ line = "courtyard mural"
 [connection signal="button_up" from="HUD/MovementButtons/GridContainer/Right" to="." method="_on_right_button_up"]
 [connection signal="button_down" from="HUD/MovementButtons/GridContainer/Down" to="." method="_on_down_button_down"]
 [connection signal="button_up" from="HUD/MovementButtons/GridContainer/Down" to="." method="_on_down_button_up"]
-[connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Messages" to="." method="_on_messages_pressed"]
-[connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Lessons" to="." method="_on_lessons_pressed"]
 [connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Backpack" to="." method="_on_backpack_pressed"]
+[connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Lessons" to="." method="_on_lessons_pressed"]
+[connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Messages" to="." method="_on_messages_pressed"]
 [connection signal="toggled" from="HUD/MenuRight/HBox/HideButtons" to="." method="_on_hide_buttons_toggled"]
 [connection signal="toggled" from="HUD/MenuRight/HBox/Audio" to="." method="_on_audio_toggled"]
 [connection signal="pressed" from="HUD/MenuRight/HBox/Settings" to="." method="_on_settings_pressed"]

@@ -12,11 +12,11 @@
 [ext_resource path="res://images/item cane.png" type="Texture" id=10]
 [ext_resource path="res://images/item magnet.png" type="Texture" id=11]
 
-[sub_resource type="InputEventAction" id=7]
+[sub_resource type="InputEventAction" id=1]
 action = "ui_cancel"
 
-[sub_resource type="ShortCut" id=8]
-shortcut = SubResource( 7 )
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
 
 [node name="BackpackWindow" type="MarginContainer"]
 unique_name_in_owner = true
@@ -164,7 +164,7 @@ margin_top = 10.0
 margin_right = 16.0
 margin_bottom = 26.0
 shortcut_in_tooltip = false
-shortcut = SubResource( 8 )
+shortcut = SubResource( 2 )
 texture_normal = ExtResource( 4 )
 
 [connection signal="pressed" from="Panel/MarginContainer2/Close" to="." method="_on_close_pressed"]
