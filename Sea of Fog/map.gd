@@ -245,3 +245,6 @@ func _on_square_timer_timeout():
 
 func _on_lessons_pressed():
 	$"%LessonsWindow".show()
+
+func _on_backpack_pressed():
+	$"%BackpackWindow".show()

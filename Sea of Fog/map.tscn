@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://fov.gd" type="Script" id=1]
 [ext_resource path="res://images/mirror.png" type="Texture" id=2]
@@ -100,6 +100,8 @@
 [ext_resource path="res://lessons.tscn" type="PackedScene" id=98]
 [ext_resource path="res://font.tres" type="DynamicFont" id=99]
 [ext_resource path="res://images/lessons.png" type="Texture" id=100]
+[ext_resource path="res://backpack.tscn" type="PackedScene" id=101]
+[ext_resource path="res://images/backpack.png" type="Texture" id=102]
 
 [sub_resource type="TileSet" id=1]
 4/name = "wall.png 4"
@@ -1225,6 +1227,7 @@ margin_right = 744.0
 margin_bottom = 56.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Teacher" type="MarginContainer" parent="HUD"]
 unique_name_in_owner = true
@@ -1382,6 +1385,14 @@ shortcut_in_tooltip = false
 shortcut = SubResource( 6 )
 texture_normal = ExtResource( 100 )
 
+[node name="Backpack" type="TextureButton" parent="HUD/MenuLeft/HBoxContainer"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 6 )
+texture_normal = ExtResource( 102 )
+
 [node name="MenuRight" type="MarginContainer" parent="HUD"]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1418,6 +1429,13 @@ margin_bottom = 64.0
 shortcut_in_tooltip = false
 shortcut = SubResource( 6 )
 texture_normal = ExtResource( 71 )
+
+[node name="BackpackWindow" parent="HUD" instance=ExtResource( 101 )]
+visible = false
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 262.0
+margin_right = 762.0
 
 [node name="LessonsWindow" parent="HUD" instance=ExtResource( 98 )]
 visible = false
@@ -2099,6 +2117,7 @@ line = "courtyard mural"
 [connection signal="button_up" from="HUD/MovementButtons/GridContainer/Down" to="." method="_on_down_button_up"]
 [connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Messages" to="." method="_on_messages_pressed"]
 [connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Lessons" to="." method="_on_lessons_pressed"]
+[connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Backpack" to="." method="_on_backpack_pressed"]
 [connection signal="toggled" from="HUD/MenuRight/HBox/HideButtons" to="." method="_on_hide_buttons_toggled"]
 [connection signal="toggled" from="HUD/MenuRight/HBox/Audio" to="." method="_on_audio_toggled"]
 [connection signal="pressed" from="HUD/MenuRight/HBox/Settings" to="." method="_on_settings_pressed"]

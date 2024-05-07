@@ -20,6 +20,7 @@ func on_move():
 	if line == "courtyard ending":
 		$"%TileMap".set_cell(2, 46, 21)
 		$"%TileMap2".set_cell(2, 46, 21)
+		$"%BackpackWindow".set_item(2, 1)
 	if not $"%Narrator".disabled.has("disc room riddle") and ["disc room health", "disc room happiness", "disc room love", "disc room growth"].has(line):
 		var tile = $"%TileMap".world_to_map(position)
 		var tile_id = ($"%TileMap".get_cell(tile.x, tile.y - 1) + 1) % 4 + 28
@@ -42,6 +43,7 @@ func on_move():
 			$"%Narrator".say("seasons altar ending")
 			$"%TileMap".set_cell(-5, 5, 38)
 			$"%TileMap2".set_cell(-5, 5, 38)
+			$"%BackpackWindow".set_item(1, 1)
 		if tile_id == 32 and $"%TileMap".get_cell(-4, 4) == 35:
 			$"%TileMap".set_cell(-6, 6, 33)
 			$"%TileMap2".set_cell(-6, 6, 33)
@@ -67,6 +69,7 @@ func on_move():
 		$"%TileMap2".set_cell(32, 29, 44)
 		$"%Narrator".say("seed room seed")
 		$"%Narrator".disable("seed room pedestal")
+		$"%BackpackWindow".set_item(1, 0)
 	if line == "seed room plate" and $"%Narrator".disabled.has("seed room seed"):
 		$"%TileMap".set_cell(32, 27, 47)
 		$"%TileMap2".set_cell(32, 27, 47)
@@ -83,6 +86,7 @@ func on_move():
 		$"%TileMap2".set_cell(39, 44, 9)
 		$"%Narrator".say("colonnade ending")
 		$"%Narrator".disable("colonnade door")
+		$"%BackpackWindow".set_item(2, 0)
 		get_parent().get_parent().walls.erase(Vector2(39, 31))
 		get_parent().get_parent().draw_fov()
 	if line == "square ending":
@@ -97,6 +101,7 @@ func on_move():
 	if line == "clock tower clock":
 		if clock_tick == 3:
 			$"%Narrator".say("clock tower ending")
+			$"%BackpackWindow".set_item(3, 1)
 		clock_tick += 1
 	if line == "invention hall door" and $"%Narrator".disabled.has("clock tower ending"):
 		$"%Narrator".say("invention hall door open")
@@ -104,6 +109,7 @@ func on_move():
 		$"%TileMap2".set_cell(17, 22, 9)
 		get_parent().get_parent().walls.erase(Vector2(17, 22))
 		get_parent().get_parent().draw_fov()
+		$"%BackpackWindow".set_item(3, 0)
 	if line == "invention hall wire pull" and $"%Narrator".disabled.has("invention hall wire"):
 		$"%TileMap".set_cell(10, 22, 67)
 		$"%TileMap2".set_cell(10, 22, 67)
@@ -114,6 +120,8 @@ func on_move():
 		$"%TileMap2".set_cell(10, 20, 70)
 		$"%Narrator".say("invention hall strength ending")
 		$"%Narrator".disable("invention hall strength")
+	if line == "invention hall magnet":
+		$"%BackpackWindow".set_item(4, 1)
 	if line == "invention hall speed" and $"%Narrator".disabled.has("invention hall magnet"):
 		$"%Narrator".say("invention hall speed ending")
 		$"%Narrator".disable("invention hall speed")
@@ -130,20 +138,22 @@ func on_move():
 		if $"%TileMap".get_cellv(get_parent().get_parent().map_position) == 7:
 			return
 		get_parent().get_parent().flowers += 1
+		$"%BackpackWindow".set_item(0, get_parent().get_parent().flowers)
 		if get_parent().get_parent().flowers == 1:
 			$"%Narrator".say("flower gate first")
 		else:
 			$"%Narrator".say("flower gate second", true)
-			
 		$"%TileMap".set_cellv(get_parent().get_parent().map_position, 7)
 		$"%TileMap2".set_cellv(get_parent().get_parent().map_position, 7)
 	if line == "flower gate closed" and get_parent().get_parent().flowers == 12:
 		$"%Narrator".say("flower gate ending")
 		$"%TileMap".set_cell(-2, 29, 76)
 		$"%TileMap2".set_cell(-2, 29, 76)
+		$"%BackpackWindow".set_item(0, 0)
 	if line == "reflection field pedestal" and $"%TileMap".get_cell(-1, 32) == 73 and $"%TileMap".get_cell(-1, 36) == 73 and $"%TileMap".get_cell(3, 32) == 73 and $"%TileMap".get_cell(3, 36) == 73:
 		$"%Narrator".say("reflection field ending")
 		$"%Player/AnimatedSprite".play("idle_left")
+		$"%BackpackWindow".set_item(5, 1)
 
 func _on_timer_timeout():
 		$"%TileMap".set_cell(32, 29, 45)
