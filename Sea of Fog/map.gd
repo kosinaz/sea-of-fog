@@ -15,6 +15,7 @@ var audio = true
 var sound = 0
 var music = -10
 var flowers = 0
+var triggers = {}
 
 func _ready():
 	var result = config.load("user://config.cfg")
@@ -34,6 +35,8 @@ func _ready():
 	$"%TileMap".hide()
 	$"HUD".show()
 	map_position = $"%TileMap".world_to_map($"%Player".position)
+	for trigger in $Triggers.get_children():
+		triggers[$TileMap.world_to_map(trigger.position)] = trigger
 	$IntroFadeIn.play("intro")
 	$Narrator.say("intro")
 	walls = $TileMap.get_used_cells_by_id(4)
@@ -137,9 +140,8 @@ func _process(_delta):
 	draw_fov()
 
 func on_move():
-	for trigger in $Triggers.get_children():
-		if map_position == $TileMap.world_to_map(trigger.position):
-			trigger.on_move()
+	if triggers.has(map_position):
+		triggers[map_position].on_move()
 
 func draw_fov():
 	var current_fov = fov.calculate(map_position.x, map_position.y, 7, walls)
