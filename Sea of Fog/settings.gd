@@ -8,9 +8,9 @@ var config = ConfigFile.new()
 func _ready():
 	var result = config.load("user://config.cfg")
 	if result == OK:
-		var sound = config.get_value("settings", "sound")
+		var sound = config.get_value("settings", "sound", 0)
 		$"%SoundVolume".value = sound if sound > -100 else -40
-		var music = config.get_value("settings", "music")
+		var music = config.get_value("settings", "music", -10)
 		$"%MusicVolume".value = music if music > -100 else -50
 
 func _on_close_settings_pressed():

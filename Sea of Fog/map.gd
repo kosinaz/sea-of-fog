@@ -1,8 +1,8 @@
 extends Node2D
 
 var fov = Fov.new()
-var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26, 27, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51, 53, 55, 57, 59, 60, 65, 66, 67, 72, 74]
-var outside_tiles = [7, 9, 19, 21, 26, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 49, 59, 60, 72, 74]
+var walkable_tiles = [7, 8, 9, 16, 18, 19, 21, 26, 27, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 46, 47, 49, 50, 51, 53, 55, 57, 59, 60, 65, 66, 67, 72, 74, 76, 77]
+var outside_tiles = [7, 9, 19, 21, 26, 32, 33, 34, 35, 36, 38, 39, 40, 41, 42, 49, 59, 60, 72, 74, 76, 77]
 var tween = null
 var map_position = Vector2()
 var up_is_down = false
@@ -14,13 +14,18 @@ var config = ConfigFile.new()
 var audio = true
 var sound = 0
 var music = -10
+var flowers = 0
 
 func _ready():
 	var result = config.load("user://config.cfg")
 	if result == OK:
-		audio = config.get_value("settings", "audio")
-		sound = config.get_value("settings", "sound")
-		music = config.get_value("settings", "music")
+		audio = config.get_value("settings", "audio", true)
+		sound = config.get_value("settings", "sound", 0)
+		music = config.get_value("settings", "music", -10)
+	print(config.get_value("settings", "audio", "audio missing"))
+	print(config.get_value("settings", "music", "music missing"))
+	print(config.get_value("settings", "sound", "sound missing"))
+	print(config.get_value("progress", "lesson", "lesson missing"))
 	$"%Narrator".volume_db = sound if sound > -40  and audio else -100
 	$"%Fanfare".volume_db = sound - 10 if sound > -40 and audio else -100
 	$"%Music".volume_db = music if music > -50 and audio else -100
@@ -64,28 +69,60 @@ func _process(_delta):
 		$"%HideButtons".set_pressed_no_signal(true)
 	if Input.is_action_pressed("ui_left") or left_is_down:
 		var tile = $"%TileMap".get_cell(map_position.x - 1, map_position.y)
-		if walkable_tiles.has(tile):
+		if tile == 73 and not $Narrator.disabled.has("reflection field ending")  and (map_position.x == 1 or map_position.x == 4):
+			$"%TileMap".set_cell(map_position.x - 1, map_position.y, 74)
+			$"%TileMap2".set_cell(map_position.x - 1, map_position.y, 74)
+			$"%TileMap".set_cell(map_position.x - 2, map_position.y, 73)
+			$"%TileMap2".set_cell(map_position.x - 2, map_position.y, 73)
+			map_position.x -= 1
+			$Player/AnimatedSprite.play("left")
+			$Narrator.say("reflection field column moves")
+		elif walkable_tiles.has(tile):
 			map_position.x -= 1
 			$Player/AnimatedSprite.play("left")
 		else:
 			$Player/AnimatedSprite.play("idle_left")
 	elif Input.is_action_pressed("ui_right") or right_is_down:
 		var tile = $"%TileMap".get_cell(map_position.x + 1, map_position.y)
-		if walkable_tiles.has(tile):
+		if tile == 73 and not $Narrator.disabled.has("reflection field ending")  and (map_position.x == -2 or map_position.x == 1):
+			$"%TileMap".set_cell(map_position.x + 1, map_position.y, 74)
+			$"%TileMap2".set_cell(map_position.x + 1, map_position.y, 74)
+			$"%TileMap".set_cell(map_position.x + 2, map_position.y, 73)
+			$"%TileMap2".set_cell(map_position.x + 2, map_position.y, 73)
+			map_position.x += 1
+			$Player/AnimatedSprite.play("right")
+			$Narrator.say("reflection field column moves")
+		elif walkable_tiles.has(tile):
 			map_position.x += 1
 			$Player/AnimatedSprite.play("right")
 		else:
 			$Player/AnimatedSprite.play("idle_right")
 	elif Input.is_action_pressed("ui_up") or up_is_down:
 		var tile = $"%TileMap".get_cell(map_position.x, map_position.y - 1)
-		if walkable_tiles.has(tile):
+		if tile == 73 and not $Narrator.disabled.has("reflection field ending")  and (map_position.y == 34 or map_position.y == 37):
+			$"%TileMap".set_cell(map_position.x, map_position.y - 1, 74)
+			$"%TileMap2".set_cell(map_position.x, map_position.y - 1, 74)
+			$"%TileMap".set_cell(map_position.x, map_position.y - 2, 73)
+			$"%TileMap2".set_cell(map_position.x, map_position.y - 2, 73)
+			map_position.y -= 1
+			$Player/AnimatedSprite.play("up")
+			$Narrator.say("reflection field column moves")
+		elif walkable_tiles.has(tile):
 			map_position.y -= 1
 			$Player/AnimatedSprite.play("up")
 		else:
 			$Player/AnimatedSprite.play("idle_up")
 	elif Input.is_action_pressed("ui_down") or down_is_down:
 		var tile = $"%TileMap".get_cell(map_position.x, map_position.y + 1)
-		if walkable_tiles.has(tile):
+		if tile == 73 and not $Narrator.disabled.has("reflection field ending") and (map_position.y == 31 or map_position.y == 34):
+			$"%TileMap".set_cell(map_position.x, map_position.y + 1, 74)
+			$"%TileMap2".set_cell(map_position.x, map_position.y + 1, 74)
+			$"%TileMap".set_cell(map_position.x, map_position.y + 2, 73)
+			$"%TileMap2".set_cell(map_position.x, map_position.y + 2, 73)
+			map_position.y += 1
+			$Player/AnimatedSprite.play("down")
+			$Narrator.say("reflection field column moves")
+		elif walkable_tiles.has(tile):
 			map_position.y += 1
 			$Player/AnimatedSprite.play("down")
 		else:
@@ -165,9 +202,14 @@ func _on_audio_toggled(button_pressed):
 	$"%Music".volume_db = -100 if button_pressed else music
 	$"%Narrator".volume_db = -100 if button_pressed else sound
 	$"%Fanfare".volume_db = -100 if button_pressed else sound - 10
+	config.load("user://config.cfg")
 	config.set_value("settings", "audio", not button_pressed)
 # warning-ignore:return_value_discarded
 	config.save("user://config.cfg")
+	print(config.get_value("settings", "audio", "audio missing"))
+	print(config.get_value("settings", "music", "music missing"))
+	print(config.get_value("settings", "sound", "sound missing"))
+	print(config.get_value("progress", "lesson", "lesson missing"))
 
 func _on_settings_pressed():
 	$"%SettingsWindow".show()
@@ -176,15 +218,25 @@ func _on_settings_pressed():
 func _on_sound_changed(value):
 	$"%Narrator".volume_db = value if value > -40 else -100
 	$"%Fanfare".volume_db = value - 10 if value > -40 else -100
+	config.load("user://config.cfg")
 	config.set_value("settings", "sound", value)
 # warning-ignore:return_value_discarded
 	config.save("user://config.cfg")
+	print(config.get_value("settings", "audio", "audio missing"))
+	print(config.get_value("settings", "music", "music missing"))
+	print(config.get_value("settings", "sound", "sound missing"))
+	print(config.get_value("progress", "lesson", "lesson missing"))
 
 func _on_music_changed(value):
 	$"%Music".volume_db = value if value > -50 else -100
+	config.load("user://config.cfg")
 	config.set_value("settings", "music", value)
 # warning-ignore:return_value_discarded
 	config.save("user://config.cfg")
+	print(config.get_value("settings", "audio", "audio missing"))
+	print(config.get_value("settings", "music", "music missing"))
+	print(config.get_value("settings", "sound", "sound missing"))
+	print(config.get_value("progress", "lesson", "lesson missing"))
 
 func _on_square_timer_timeout():
 	var id = 0
@@ -194,12 +246,10 @@ func _on_square_timer_timeout():
 				continue
 			id = [9, 52, 52, 52][randi() % 4]
 			$"%TileMap".set_cell(x, y, id)
-			$"%TileMap2".set_cell(x, y, id)
 	if map_position != Vector2(43, 24):
 		id = [9, 52, 52, 52][randi() % 4]
 		$"%TileMap".set_cell(43, 24, id)
-		$"%TileMap2".set_cell(43, 24, id)
 	if map_position != Vector2(43, 26):
 		id = [9, 52, 52, 52][randi() % 4]
 		$"%TileMap".set_cell(43, 26, id)
-		$"%TileMap2".set_cell(43, 26, id)
+	draw_fov()

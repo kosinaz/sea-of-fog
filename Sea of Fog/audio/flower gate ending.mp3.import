@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/flower gate ending.mp3-a3094959e41c6bc5320677502b3c362e.mp3str"
+
+[deps]
+
+source_file="res://audio/flower gate ending.mp3"
+dest_files=[ "res://.import/flower gate ending.mp3-a3094959e41c6bc5320677502b3c362e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

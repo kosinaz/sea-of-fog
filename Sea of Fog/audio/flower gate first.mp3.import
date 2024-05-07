@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/flower gate first.mp3-54598c811bcca604cd15ea527829365a.mp3str"
+
+[deps]
+
+source_file="res://audio/flower gate first.mp3"
+dest_files=[ "res://.import/flower gate first.mp3-54598c811bcca604cd15ea527829365a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,5 +1,7 @@
 extends MarginContainer
 
+var config = ConfigFile.new()
+
 var lessons = {
 	"mirror room ending": "Answers often emerge from unexpected places.",
 	"courtyard ending": "Time is endless, flowing like water; its beauty lie in close admiration.",
@@ -10,18 +12,36 @@ var lessons = {
 	"square ending": "Adapt to the unpredictable nature of the future.",
 	"maze ending": "Discover your own light amidst darkness, guiding your path even in the most obscure moments.",
 	"clock tower ending": "Embrace the passage of time, for with each tick of the clock, new opportunities unfold.",
+	"invention hall ending": "Innovation thrives in the face of challenge; adapt and conquer.",
+	"flower gate ending": "Exploration yields treasures unseen.",
+	"reflection field ending": "Embrace self-reflection to uncover hidden strengths and forge a path forward.",
 }
 
-var lesson_id = 1
+var lesson_id = 0
 
 func present(lesson):
 	if lesson == "ending":
 		return
+	if lesson == "full ending":
+		return
+	if lesson == "invention hall strength ending":
+		return
+	if lesson == "invention hall speed ending":
+		return
+	if lesson == "invention hall cunning ending":
+		return
+	lesson_id += 1
 	show()
 	$Panel/Lesson.text = "Lesson " + str(lesson_id) + "/" + str(lessons.size()) + " Learned: \n" + lessons[lesson]
 	$Timer.start()
 	$"%Fanfare".play()
-	lesson_id += 1
+	config.load("user://config.cfg")
+	config.set_value("progress", "lesson", lesson_id)
+	config.save("user://config.cfg")
+	print(config.get_value("settings", "audio", "audio missing"))
+	print(config.get_value("settings", "music", "music missing"))
+	print(config.get_value("settings", "sound", "sound missing"))
+	print(config.get_value("progress", "lesson", "lesson missing"))
 
 func _on_timer_timeout():
 	hide()

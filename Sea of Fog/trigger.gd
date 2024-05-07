@@ -16,6 +16,7 @@ func on_move():
 		$"%TileMap".set_cell(26, 20, 9)
 		$"%Narrator".disable("door")
 		get_parent().get_parent().walls.erase(Vector2(26, 20))
+		get_parent().get_parent().draw_fov()
 	if line == "courtyard ending":
 		$"%TileMap".set_cell(2, 46, 21)
 		$"%TileMap2".set_cell(2, 46, 21)
@@ -78,6 +79,8 @@ func on_move():
 	if line == "colonnade statue" and $"%Narrator".disabled.has("courtyard ending"):
 		$"%TileMap".set_cell(39, 31, 9)
 		$"%TileMap2".set_cell(39, 31, 9)
+		$"%TileMap".set_cell(39, 44, 9)
+		$"%TileMap2".set_cell(39, 44, 9)
 		$"%Narrator".say("colonnade ending")
 		$"%Narrator".disable("colonnade door")
 		get_parent().get_parent().walls.erase(Vector2(39, 31))
@@ -95,8 +98,52 @@ func on_move():
 		if clock_tick == 3:
 			$"%Narrator".say("clock tower ending")
 		clock_tick += 1
-		
-		
+	if line == "invention hall door" and $"%Narrator".disabled.has("clock tower ending"):
+		$"%Narrator".say("invention hall door open")
+		$"%TileMap".set_cell(17, 22, 9)
+		$"%TileMap2".set_cell(17, 22, 9)
+		get_parent().get_parent().walls.erase(Vector2(17, 22))
+		get_parent().get_parent().draw_fov()
+	if line == "invention hall wire pull" and $"%Narrator".disabled.has("invention hall wire"):
+		$"%TileMap".set_cell(10, 22, 67)
+		$"%TileMap2".set_cell(10, 22, 67)
+	if line == "invention hall wire pull 2" and $"%TileMap".get_cell(10, 22) == 67:
+		$"%TileMap".set_cell(10, 21, 67)
+		$"%TileMap2".set_cell(10, 21, 67)
+		$"%TileMap".set_cell(10, 20, 70)
+		$"%TileMap2".set_cell(10, 20, 70)
+		$"%Narrator".say("invention hall strength ending")
+		$"%Narrator".disable("invention hall strength")
+	if line == "invention hall speed" and $"%Narrator".disabled.has("invention hall magnet"):
+		$"%Narrator".say("invention hall speed ending")
+		$"%Narrator".disable("invention hall speed")
+	if line == "invention hall cunning" and $"%Narrator".disabled.has("invention hall book"):
+		$"%Narrator".say("invention hall cunning ending")
+		$"%Narrator".disable("invention hall cunning")
+	if line == "invention hall riddle" and $"%Narrator".disabled.has("invention hall strength ending") and $"%Narrator".disabled.has("invention hall speed ending") and $"%Narrator".disabled.has("invention hall cunning ending"):
+		$"%Narrator".say("invention hall ending")
+		$"%TileMap".set_cell(4, 22, 9)
+		$"%TileMap2".set_cell(4, 22, 9)
+		get_parent().get_parent().walls.erase(Vector2(4, 22))
+		get_parent().get_parent().draw_fov()
+	if line == "flower gate flower":
+		if $"%TileMap".get_cellv(get_parent().get_parent().map_position) == 7:
+			return
+		get_parent().get_parent().flowers += 1
+		if get_parent().get_parent().flowers == 1:
+			$"%Narrator".say("flower gate first")
+		else:
+			$"%Narrator".say("flower gate second", true)
+			
+		$"%TileMap".set_cellv(get_parent().get_parent().map_position, 7)
+		$"%TileMap2".set_cellv(get_parent().get_parent().map_position, 7)
+	if line == "flower gate closed" and get_parent().get_parent().flowers == 12:
+		$"%Narrator".say("flower gate ending")
+		$"%TileMap".set_cell(-2, 29, 76)
+		$"%TileMap2".set_cell(-2, 29, 76)
+	if line == "reflection field pedestal" and $"%TileMap".get_cell(-1, 32) == 73 and $"%TileMap".get_cell(-1, 36) == 73 and $"%TileMap".get_cell(3, 32) == 73 and $"%TileMap".get_cell(3, 36) == 73:
+		$"%Narrator".say("reflection field ending")
+		$"%Player/AnimatedSprite".play("idle_left")
 
 func _on_timer_timeout():
 		$"%TileMap".set_cell(32, 29, 45)
