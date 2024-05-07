@@ -23,10 +23,8 @@ func _ready():
 		audio = config.get_value("settings", "audio", true)
 		sound = config.get_value("settings", "sound", 0)
 		music = config.get_value("settings", "music", -10)
-	print(config.get_value("settings", "audio", "audio missing"))
-	print(config.get_value("settings", "music", "music missing"))
-	print(config.get_value("settings", "sound", "sound missing"))
-	print(config.get_value("progress", "lesson", "lesson missing"))
+	config.set_value("progress", "lesson", 0)
+	config.save("user://config.cfg")
 	$"%Narrator".volume_db = sound if sound > -40  and audio else -100
 	$"%Fanfare".volume_db = sound - 10 if sound > -40 and audio else -100
 	$"%Music".volume_db = music if music > -50 and audio else -100
@@ -208,12 +206,9 @@ func _on_audio_toggled(button_pressed):
 	config.set_value("settings", "audio", not button_pressed)
 # warning-ignore:return_value_discarded
 	config.save("user://config.cfg")
-	print(config.get_value("settings", "audio", "audio missing"))
-	print(config.get_value("settings", "music", "music missing"))
-	print(config.get_value("settings", "sound", "sound missing"))
-	print(config.get_value("progress", "lesson", "lesson missing"))
 
 func _on_settings_pressed():
+	$"%LessonsWindow".hide()
 	$"%SettingsWindow".show()
 	get_tree().paused = true
 
@@ -224,10 +219,6 @@ func _on_sound_changed(value):
 	config.set_value("settings", "sound", value)
 # warning-ignore:return_value_discarded
 	config.save("user://config.cfg")
-	print(config.get_value("settings", "audio", "audio missing"))
-	print(config.get_value("settings", "music", "music missing"))
-	print(config.get_value("settings", "sound", "sound missing"))
-	print(config.get_value("progress", "lesson", "lesson missing"))
 
 func _on_music_changed(value):
 	$"%Music".volume_db = value if value > -50 else -100
@@ -235,10 +226,6 @@ func _on_music_changed(value):
 	config.set_value("settings", "music", value)
 # warning-ignore:return_value_discarded
 	config.save("user://config.cfg")
-	print(config.get_value("settings", "audio", "audio missing"))
-	print(config.get_value("settings", "music", "music missing"))
-	print(config.get_value("settings", "sound", "sound missing"))
-	print(config.get_value("progress", "lesson", "lesson missing"))
 
 func _on_square_timer_timeout():
 	var id = 0
@@ -255,3 +242,6 @@ func _on_square_timer_timeout():
 		id = [9, 52, 52, 52][randi() % 4]
 		$"%TileMap".set_cell(43, 26, id)
 	draw_fov()
+
+func _on_lessons_pressed():
+	$"%LessonsWindow".show()

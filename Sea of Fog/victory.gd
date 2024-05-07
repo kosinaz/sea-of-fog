@@ -4,7 +4,7 @@ var config = ConfigFile.new()
 var audio = true
 var sound = 0
 var music = -10
-var lesson_id = 1
+var lesson_id = 0
 
 func _ready():
 	var result = config.load("user://config.cfg")
@@ -12,11 +12,7 @@ func _ready():
 		audio = config.get_value("settings", "audio", true)
 		sound = config.get_value("settings", "sound", 0)
 		music = config.get_value("settings", "music", -10)
-		lesson_id = config.get_value("progress", "lesson", 1)
-	print(config.get_value("settings", "audio", "audio missing"))
-	print(config.get_value("settings", "music", "music missing"))
-	print(config.get_value("settings", "sound", "sound missing"))
-	print(config.get_value("progress", "lesson", "lesson missing"))
+		lesson_id = config.get_value("progress", "lesson", 0)
 	$AudioStreamPlayerEnding.volume_db = sound if sound > -40 and audio else -100
 	$AudioStreamPlayerFullEnding.volume_db = sound if sound > -40 and audio else -100
 	$AudioStreamPlayerMusic.volume_db = (music if music > -50 and audio else -100) - 5
@@ -50,7 +46,3 @@ func _on_audio_toggled(button_pressed):
 	config.set_value("settings", "audio", not button_pressed)
 # warning-ignore:return_value_discarded
 	config.save("user://config.cfg")
-	print(config.get_value("settings", "audio", "audio missing"))
-	print(config.get_value("settings", "music", "music missing"))
-	print(config.get_value("settings", "sound", "sound missing"))
-	print(config.get_value("progress", "lesson", "lesson missing"))

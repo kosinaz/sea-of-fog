@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://fov.gd" type="Script" id=1]
 [ext_resource path="res://images/mirror.png" type="Texture" id=2]
@@ -97,6 +97,9 @@
 [ext_resource path="res://images/gate open.png" type="Texture" id=95]
 [ext_resource path="res://images/gate.png" type="Texture" id=96]
 [ext_resource path="res://images/flower.png" type="Texture" id=97]
+[ext_resource path="res://lessons.tscn" type="PackedScene" id=98]
+[ext_resource path="res://font.tres" type="DynamicFont" id=99]
+[ext_resource path="res://images/lessons.png" type="Texture" id=100]
 
 [sub_resource type="TileSet" id=1]
 4/name = "wall.png 4"
@@ -1138,9 +1141,6 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 30 )
-
 [sub_resource type="StyleBoxFlat" id=9]
 content_margin_left = 10.0
 content_margin_right = 10.0
@@ -1225,7 +1225,6 @@ margin_right = 744.0
 margin_bottom = 56.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Teacher" type="MarginContainer" parent="HUD"]
 unique_name_in_owner = true
@@ -1248,7 +1247,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 414.0
 margin_bottom = 43.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = ExtResource( 99 )
 text = "Lesson Learned:
 "
 align = 1
@@ -1272,7 +1271,7 @@ margin_left = 10.0
 margin_top = 24.0
 margin_right = 1014.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = ExtResource( 99 )
 autowrap = true
 
 [node name="MovementButtons" type="MarginContainer" parent="HUD"]
@@ -1363,13 +1362,25 @@ margin_right = 276.0
 margin_bottom = 64.0
 custom_constants/margin_left = 20
 
-[node name="Messages" type="TextureButton" parent="HUD/MenuLeft"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MenuLeft"]
 margin_left = 20.0
 margin_right = 276.0
+margin_bottom = 64.0
+
+[node name="Messages" type="TextureButton" parent="HUD/MenuLeft/HBoxContainer"]
+margin_right = 64.0
 margin_bottom = 64.0
 shortcut_in_tooltip = false
 shortcut = SubResource( 6 )
 texture_normal = ExtResource( 63 )
+
+[node name="Lessons" type="TextureButton" parent="HUD/MenuLeft/HBoxContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 6 )
+texture_normal = ExtResource( 100 )
 
 [node name="MenuRight" type="MarginContainer" parent="HUD"]
 anchor_left = 1.0
@@ -1408,6 +1419,9 @@ shortcut_in_tooltip = false
 shortcut = SubResource( 6 )
 texture_normal = ExtResource( 71 )
 
+[node name="LessonsWindow" parent="HUD" instance=ExtResource( 98 )]
+visible = false
+
 [node name="LogPanel" type="Panel" parent="HUD"]
 unique_name_in_owner = true
 visible = false
@@ -1415,18 +1429,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = ExtResource( 64 )
 
+[node name="MarginContainer3" type="MarginContainer" parent="HUD/LogPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -19.5
+margin_right = 19.5
+margin_bottom = 25.0
+custom_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="HUD/LogPanel/MarginContainer3"]
+margin_top = 10.0
+margin_right = 39.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 99 )
+text = "Diary"
+
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/LogPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 10
-custom_constants/margin_top = 74
+custom_constants/margin_top = 42
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
 [node name="Log" type="RichTextLabel" parent="HUD/LogPanel/MarginContainer2"]
 unique_name_in_owner = true
 margin_left = 10.0
-margin_top = 74.0
+margin_top = 42.0
 margin_right = 1014.0
 margin_bottom = 590.0
 custom_fonts/normal_font = SubResource( 4 )
@@ -1435,17 +1464,21 @@ scroll_following = true
 [node name="MarginContainer" type="MarginContainer" parent="HUD/LogPanel"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -64.0
-margin_bottom = 64.0
+margin_left = -26.0
+margin_bottom = 26.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
 
 [node name="HideMessages" type="TextureButton" parent="HUD/LogPanel/MarginContainer"]
-margin_right = 64.0
-margin_bottom = 64.0
+margin_top = 10.0
+margin_right = 16.0
+margin_bottom = 26.0
 shortcut_in_tooltip = false
 shortcut = SubResource( 8 )
 texture_normal = ExtResource( 65 )
 
 [node name="SettingsWindow" parent="HUD" instance=ExtResource( 72 )]
+visible = false
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -2064,7 +2097,8 @@ line = "courtyard mural"
 [connection signal="button_up" from="HUD/MovementButtons/GridContainer/Right" to="." method="_on_right_button_up"]
 [connection signal="button_down" from="HUD/MovementButtons/GridContainer/Down" to="." method="_on_down_button_down"]
 [connection signal="button_up" from="HUD/MovementButtons/GridContainer/Down" to="." method="_on_down_button_up"]
-[connection signal="pressed" from="HUD/MenuLeft/Messages" to="." method="_on_messages_pressed"]
+[connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Messages" to="." method="_on_messages_pressed"]
+[connection signal="pressed" from="HUD/MenuLeft/HBoxContainer/Lessons" to="." method="_on_lessons_pressed"]
 [connection signal="toggled" from="HUD/MenuRight/HBox/HideButtons" to="." method="_on_hide_buttons_toggled"]
 [connection signal="toggled" from="HUD/MenuRight/HBox/Audio" to="." method="_on_audio_toggled"]
 [connection signal="pressed" from="HUD/MenuRight/HBox/Settings" to="." method="_on_settings_pressed"]

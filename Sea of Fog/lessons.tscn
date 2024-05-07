@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://box.tres" type="StyleBox" id=1]
+[ext_resource path="res://lessons.gd" type="Script" id=2]
+[ext_resource path="res://font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://images/x.png" type="Texture" id=4]
+[ext_resource path="res://alagard.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 5 )
+
+[sub_resource type="InputEventAction" id=7]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
+[node name="LessonsWindow" type="MarginContainer"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -250.0
+margin_right = 250.0
+margin_bottom = 160.0
+script = ExtResource( 2 )
+
+[node name="LessonsPanel" type="Panel" parent="."]
+margin_right = 500.0
+margin_bottom = 160.0
+custom_styles/panel = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="LessonsPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -59.5
+margin_right = 59.5
+margin_bottom = 25.0
+custom_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="LessonsPanel/MarginContainer"]
+margin_top = 10.0
+margin_right = 119.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
+text = "Lessons Learned"
+
+[node name="MarginContainer3" type="MarginContainer" parent="LessonsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 42
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="List" type="RichTextLabel" parent="LessonsPanel/MarginContainer3"]
+unique_name_in_owner = true
+margin_left = 10.0
+margin_top = 42.0
+margin_right = 490.0
+margin_bottom = 150.0
+custom_fonts/normal_font = SubResource( 9 )
+
+[node name="MarginContainer2" type="MarginContainer" parent="LessonsPanel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -26.0
+margin_bottom = 26.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+
+[node name="CloseLessons" type="TextureButton" parent="LessonsPanel/MarginContainer2"]
+margin_top = 10.0
+margin_right = 16.0
+margin_bottom = 26.0
+shortcut_in_tooltip = false
+shortcut = SubResource( 8 )
+texture_normal = ExtResource( 4 )
+
+[connection signal="pressed" from="LessonsPanel/MarginContainer2/CloseLessons" to="." method="_on_close_pressed"]

@@ -38,10 +38,8 @@ func present(lesson):
 	config.load("user://config.cfg")
 	config.set_value("progress", "lesson", lesson_id)
 	config.save("user://config.cfg")
-	print(config.get_value("settings", "audio", "audio missing"))
-	print(config.get_value("settings", "music", "music missing"))
-	print(config.get_value("settings", "sound", "sound missing"))
-	print(config.get_value("progress", "lesson", "lesson missing"))
+	var i = lessons.keys().find(lesson)
+	$"%LessonsWindow".add_lesson(i, lessons[lesson])
 
 func _on_timer_timeout():
 	hide()
